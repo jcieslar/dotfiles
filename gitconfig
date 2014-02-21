@@ -1,0 +1,15 @@
+[color]
+	ui = true
+[user]
+	name = Jakub Cieslar
+	email = cieslar.jakub@gmail.com
+[core]
+    editor = vim
+[alias]
+    st = status
+    ci = commit -m
+    br = branch
+    co = checkout
+    lg = log --pretty=format:'%h - %s : %an : %ad' --graph
+    ll  = log --decorate --stat --graph --pretty=format:'%d %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
+    l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph
