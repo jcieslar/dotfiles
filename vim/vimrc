@@ -434,3 +434,6 @@ inoremap <Esc>D <left>
 if has("balloon_eval")
   set noballooneval
 endif
+
+" vim-github-comment
+let g:github_user ='jcieslar'
