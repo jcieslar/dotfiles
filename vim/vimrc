@@ -436,4 +436,11 @@ if has("balloon_eval")
 endif
 
 " vim-github-comment
-let g:github_user ='jcieslar'
+ let g:github_user = 'jcieslar'
+
+
+set novb "no visuabl bell
+set nowrap "dont wrap text
+
+set colorcolumn=80
+
