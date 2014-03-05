@@ -103,8 +103,8 @@
 [submodule "vim/bundle/vim-preview"]
 	path = vim/bundle/vim-preview
 	url = git://github.com/greyblake/vim-preview.git
-[submodule "vim/bundle/abolish"]
-	path = vim/bundle/abolish
+[submodule "vim/bundle/vim-abolish"]
+	path = vim/bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
 [submodule "vim/bundle/liftweb-vim"]
 	path = vim/bundle/liftweb-vim
@@ -163,8 +163,8 @@
 [submodule "vim/bundle/git-vim"]
 	path = vim/bundle/git-vim
 	url = git://github.com/motemen/git-vim.git
-[submodule "vim/bundle/grep-vim"]
-	path = vim/bundle/grep-vim
+[submodule "vim/bundle/grep.vim"]
+	path = vim/bundle/grep.vim
 	url = git://github.com/vim-scripts/grep.vim.git
 [submodule "vim/bundle/vim-indexed-search"]
 	path = vim/bundle/vim-indexed-search
@@ -199,3 +199,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/bundle/vim-github-comment"]
+	path = vim/bundle/vim-github-comment
+	url = https://github.com/mmozuras/vim-github-comment.git
