@@ -4,7 +4,11 @@ dotfiles
 My Ubuntu dotfiles
 
 ## Instalation:
+About submodules:
+git submodule update --init
+```
 git submodule update --init --recursive
+```
 
 ## Add new plugin:
 

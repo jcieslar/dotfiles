@@ -5,6 +5,7 @@
 	email = cieslar.jakub@gmail.com
 [core]
     editor = vim
+    excludesfile = ~/dotfiles/gitignore_global
 [alias]
     st = status
     ci = commit -m

@@ -202,3 +202,6 @@
 [submodule "vim/bundle/vim-github-comment"]
 	path = vim/bundle/vim-github-comment
 	url = https://github.com/mmozuras/vim-github-comment.git
+[submodule "vim/bundle/vim-polyglot"]
+	path = vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
