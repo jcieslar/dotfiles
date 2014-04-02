@@ -10,8 +10,7 @@ cd bin
 ./install.sh
 ```
 
-About submodules:
-git submodule update --init
+##About submodules:
 ```
 git submodule update --init --recursive
 ```
@@ -26,6 +25,12 @@ git submodule add https://github.com/mmozuras/vim-github-comment.git vim/bundle/
 ## Update plugins:
 ```
 git submodule foreach git pull origin master
+```
+
+## Submodules
+Readd submodule:
+```
+git rm --cached vim/bundle/vim-github-comment
 ```
 
 ## List of plugins:
