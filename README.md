@@ -4,6 +4,12 @@ dotfiles
 My Ubuntu dotfiles
 
 ## Instalation:
+Create symlinks
+```
+cd bin
+./install.sh
+```
+
 About submodules:
 git submodule update --init
 ```
