@@ -35,7 +35,7 @@ git rm --cached vim/bundle/vim-github-comment
 
 Remove plugin:
 ```
-rm -rf .git/modules/vim/
+git rm --cached vim/bundle/vim-rsi/
 rm -rf .git/modules/vim/bundle/vim-rsi/
 rm -rf vim/bundle/vim-rsi/
 ```
