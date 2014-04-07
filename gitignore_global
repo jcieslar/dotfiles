@@ -37,6 +37,10 @@ ehthumbs.db
 Thumbs.db
 
 # Vim #
-######
+#######
 *.swo
 *.swp
+
+# Rails #
+#########
+*.rvmrc
