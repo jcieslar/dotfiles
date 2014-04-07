@@ -33,5 +33,12 @@ Readd submodule:
 git rm --cached vim/bundle/vim-github-comment
 ```
 
+Remove plugin:
+```
+rm -rf .git/modules/vim/
+rm -rf .git/modules/vim/bundle/vim-rsi/
+rm -rf vim/bundle/vim-rsi/
+```
+
 ## List of plugins:
 
