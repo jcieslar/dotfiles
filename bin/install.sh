@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
 echo 'symlinks'
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
+if [ ! -L '~/.vimrc' ]; then
+  ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+fi
+if [ ! -L '~/.gitconfig' ]; then
+  ln -s ~/dotfiles/vim ~/.vim
+fi
+if [ ! -L '~/.gitconfig' ]; then
+  ln -s ~/dotfiles/gitconfig ~/.gitconfig
+fi
+
+# osx
+if [ ! -L '~/.bash_profile' ]; then
+  ln -s ~/dotfiles/bash_profile ~/.bash_profile
+fi
