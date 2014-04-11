@@ -4,11 +4,21 @@ echo 'symlinks'
 if [ ! -L '~/.vimrc' ]; then
   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 fi
+
 if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/vim ~/.vim
 fi
+
 if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
+fi
+
+if [ ! -L '~/.bashrc' ]; then
+  ln -s ~/dotfiles/bashrc ~/.bashrc
+fi
+
+if [ ! -L '~/.bash_aliases' ]; then
+  ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 fi
 
 # osx
