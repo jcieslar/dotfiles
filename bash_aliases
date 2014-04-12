@@ -11,7 +11,8 @@ alias clone='git clone'
 alias branch='git branch'
 alias rebase='git rebase'
 alias amend='git commit --amend'
-alias diff="git diff"
+alias diff='git diff'
+alias add='git add'
 
 alias push='git push origin'
 alias pull='git pull origin'
