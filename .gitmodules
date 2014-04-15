@@ -196,7 +196,7 @@
 	url = https://github.com/mmozuras/vim-github-comment.git
 [submodule "vim/bundle/vim-polyglot"]
 	path = vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
+	url = https://github.com/sheerun/vim-polyglot
 [submodule "vim/bundle/vim-haml"]
 	path = vim/bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
