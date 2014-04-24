@@ -13,6 +13,7 @@ alias rebase='git rebase'
 alias amend='git commit --amend'
 alias diff='git diff'
 alias add='git add'
+alias reset='git reset'
 
 alias push='git push origin'
 alias pull='git pull origin'
