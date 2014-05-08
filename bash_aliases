@@ -18,3 +18,5 @@ alias reset='git reset'
 alias push='git push origin'
 alias pull='git pull origin'
 alias fetch='git fetch origin'
+
+alias grep="grep --color"
