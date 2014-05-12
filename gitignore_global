@@ -44,4 +44,5 @@ Thumbs.db
 
 # Rails #
 #########
-*.rvmrc
+.rvmrc
+.ruby-version
