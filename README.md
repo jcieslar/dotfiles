@@ -41,6 +41,7 @@ rm -rf vim/bundle/vim-rsi/
 ```
 
 ## List of plugins:
+1. [ack](https://github.com/mileszs/ack.vim) - search
 1. [vim-github-comment](https://github.com/mmozuras/vim-github-comment) - inline comment github code
 1. [webapi-vim](https://github.com/mattn/webapi-vim) - web api
 
