@@ -20,3 +20,5 @@ alias pull='git pull origin'
 alias fetch='git fetch origin'
 
 alias grep="grep --color"
+
+alias fm="foreman start"
