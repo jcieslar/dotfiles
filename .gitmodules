@@ -76,7 +76,7 @@
   ignore = dirty
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab
   ignore = dirty
 [submodule "vim/bundle/vim-ruby-sinatra"]
 	path = vim/bundle/vim-ruby-sinatra
