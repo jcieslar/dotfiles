@@ -28,20 +28,28 @@ git submodule foreach git pull origin master
 ```
 
 ## Submodules
-Readd submodule:
+###Readd submodule:
 ```
 git rm --cached vim/bundle/vim-github-comment
 ```
 
-Remove plugin:
+###Remove plugin:
 ```
 git rm --cached vim/bundle/vim-rsi/
 rm -rf .git/modules/vim/bundle/vim-rsi/
 rm -rf vim/bundle/vim-rsi/
 ```
 
+or
+```
+./remove.sh
+```
+and then pass plugin name
+
 ## List of plugins:
 1. [ack](https://github.com/mileszs/ack.vim) - search
+1. [gist-vim](https://github.com/mattn/gist-vim) - gist
+1. [vim-airline](https://github.com/bling/vim-airline) - Lean & mean status/tabline for vim that's light as air.
 1. [vim-github-comment](https://github.com/mmozuras/vim-github-comment) - inline comment github code
 1. [webapi-vim](https://github.com/mattn/webapi-vim) - web api
 1. [gitgutter](https://github.com/airblade/vim-gitgutter.git) - Shows signs for added, modified, and removed lines.
