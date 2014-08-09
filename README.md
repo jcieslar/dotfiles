@@ -54,6 +54,7 @@ and then pass plugin name
 1. [supertab](https://github.com/ervandew/supertab) - autocomplit
 1. [vim-airline](https://github.com/bling/vim-airline) - Lean & mean status/tabline for vim that's light as air.
 1. [vim-github-comment](https://github.com/mmozuras/vim-github-comment) - inline comment github code
+1. [vim-poliglot](https://github.com/sheerun/vim-polyglot) - A syntaxt collection of language packs for Vim.
 1. [vim-sleuth](https://github.com/tpope/vim-sleuth) - This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 1. [webapi-vim](https://github.com/mattn/webapi-vim) - web api
 1. [YankRing.vim](https://github.com/vim-scripts/YankRing.vim) - yank
