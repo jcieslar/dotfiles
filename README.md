@@ -49,9 +49,11 @@ and then pass plugin name
 ## List of plugins:
 1. [ack](https://github.com/mileszs/ack.vim) - search
 1. [gist-vim](https://github.com/mattn/gist-vim) - gist
+1. [gitgutter](https://github.com/airblade/vim-gitgutter.git) - Shows signs for added, modified, and removed lines.
+1. [javascript-libraries-syntax](https://github.com/othree/javascript-libraries-syntax.vim) - js frameworks syntax
+1. [supertab](https://github.com/ervandew/supertab) - autocomplit
 1. [vim-airline](https://github.com/bling/vim-airline) - Lean & mean status/tabline for vim that's light as air.
 1. [vim-github-comment](https://github.com/mmozuras/vim-github-comment) - inline comment github code
+1. [vim-sleuth](https://github.com/tpope/vim-sleuth) - This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 1. [webapi-vim](https://github.com/mattn/webapi-vim) - web api
-1. [gitgutter](https://github.com/airblade/vim-gitgutter.git) - Shows signs for added, modified, and removed lines.
-1. [supertab](https://github.com/ervandew/supertab)
-
+1. [YankRing.vim](https://github.com/vim-scripts/YankRing.vim) - yank
