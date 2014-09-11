@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# git
 alias st='git st'
 alias lg='git l'
 alias ci='git ci'
@@ -21,4 +22,8 @@ alias fetch='git fetch origin'
 
 alias grep="grep --color"
 
+# foreman
 alias fm="foreman start"
+
+# vim
+alias v="vim"
