@@ -27,3 +27,6 @@ alias fm="foreman start"
 
 # vim
 alias v="vim"
+
+# bundle
+alias b="bundle exec"
