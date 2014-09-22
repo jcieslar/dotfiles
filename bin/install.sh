@@ -21,6 +21,10 @@ if [ ! -L '~/.bash_aliases' ]; then
   ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 fi
 
+if [ ! -L '~/.rspec' ]; then
+  ln -s ~/dotfiles/rspec ~/.rspec
+fi
+
 # osx
 if [ ! -L '~/.bash_profile' ]; then
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
