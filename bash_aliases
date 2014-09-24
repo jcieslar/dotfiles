@@ -30,3 +30,7 @@ alias v="vim"
 
 # bundle
 alias b="bundle exec"
+
+# wowza
+alias startWowzaStream="cd /usr/local/WowzaStreamingEngine/bin && sudo ./startup.sh"
+alias startWowzaManager="cd /usr/local/WowzaStreamingEngine/manager/bin && sudo ./startmgr.sh"
