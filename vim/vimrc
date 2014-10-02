@@ -275,6 +275,7 @@ endif
 " nmap <silent> <Leader>q <Plug>PeepOpen
 let mapleader = "\<Space>"
 map <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
+map <Leader>c oconsole.log<esc>:w<cr>
 
 " Open NERDTree in new tabs and windows if no command line args set
 autocmd VimEnter * if !argc() | NERDTree | endif
