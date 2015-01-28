@@ -29,6 +29,10 @@ if [ ! -L '~/.ackrc' ]; then
   ln -s ~/dotfiles/vim/ackrc ~/.ackrc
 fi
 
+if [ ! -L '~/.tmux.conf' ]; then
+  ln -s ~/dotfiles/tmux.confc ~/.tmux.conf
+fi
+
 # osx
 if [ ! -L '~/.bash_profile' ]; then
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
