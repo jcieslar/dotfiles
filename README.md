@@ -48,6 +48,7 @@ and then pass plugin name
 
 ## List of plugins:
 1. [ack](https://github.com/mileszs/ack.vim) - search
+1. [vim-autoclose](https://github.com/Townk/vim-autoclose) - Auto close chars
 1. [gist-vim](https://github.com/mattn/gist-vim) - gist
 1. [gitgutter](https://github.com/airblade/vim-gitgutter.git) - Shows signs for added, modified, and removed lines.
 1. [javascript-libraries-syntax](https://github.com/othree/javascript-libraries-syntax.vim) - js frameworks syntax
