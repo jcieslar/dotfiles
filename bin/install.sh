@@ -5,7 +5,7 @@ if [ ! -L '~/.vimrc' ]; then
   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 fi
 
-if [ ! -L '~/.gitconfig' ]; then
+if [ ! -L '~/.vim' ]; then
   ln -s ~/dotfiles/vim ~/.vim
 fi
 
