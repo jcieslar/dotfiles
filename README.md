@@ -50,6 +50,7 @@ and then pass plugin name
 1. [ack](https://github.com/mileszs/ack.vim) - search
 1. [vim-autoclose](https://github.com/Townk/vim-autoclose) - Auto close chars
 1. [gist-vim](https://github.com/mattn/gist-vim) - gist
+1. [git-vim](https://github.com/motemen/git-vim) - git actions e.g :GitBlame
 1. [gitgutter](https://github.com/airblade/vim-gitgutter.git) - Shows signs for added, modified, and removed lines.
 1. [javascript-libraries-syntax](https://github.com/othree/javascript-libraries-syntax.vim) - js frameworks syntax
 1. [supertab](https://github.com/ervandew/supertab) - autocomplit

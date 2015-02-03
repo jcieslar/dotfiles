@@ -1,4 +1,4 @@
-"avoiding annoying CSApprox warning message
+"  "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
 
 "necessary on some Linux distros for pathogen to properly load bundles
@@ -289,3 +289,6 @@ if &term =~ '256color'
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
+
+" Autosave on leave
+let g:tmux_navigator_save_on_switch = 1
