@@ -53,10 +53,6 @@ alias rr='rake routes'
 alias rdbm='rake db:migrate'
 alias rdbr='rake db:rollback'
 
-# wowza
-alias startWowzaStream="cd /usr/local/WowzaStreamingEngine/bin && sudo ./startup.sh"
-alias startWowzaManager="cd /usr/local/WowzaStreamingEngine/manager/bin && sudo ./startmgr.sh"
-
 # laziness
 alias ch='google-chrome'
 alias chh='ch gmail.com facebook.com twitter.com github.com keep.google.com'

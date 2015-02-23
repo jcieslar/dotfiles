@@ -32,6 +32,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-bundler'
+NeoBundle 'airblade/vim-gitgutter'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -362,7 +363,7 @@ set shiftwidth=2    " Indents will have a width of 4
 set tabstop=2
 
 " Stop the highlighting for the 'hlsearch' option.
-set nohlsearch
+" set nohlsearch
 " Split vertically to right
 set splitright
 " ignore case while search

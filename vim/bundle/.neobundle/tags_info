@@ -12,6 +12,7 @@ vim-colorschemes
 vim-commentary
 vim-endwise
 vim-fugitive
+vim-gitgutter
 vim-polyglot
 vim-rails
 vim-tmux-navigator
