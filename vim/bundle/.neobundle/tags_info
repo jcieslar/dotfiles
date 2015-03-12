@@ -13,7 +13,9 @@ vim-commentary
 vim-endwise
 vim-fugitive
 vim-gitgutter
+vim-github-comment
 vim-polyglot
 vim-rails
 vim-tmux-navigator
 vimshell
+webapi-vim
