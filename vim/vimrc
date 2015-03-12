@@ -16,25 +16,30 @@ call neobundle#begin(expand('/home/qba/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'motemen/git-vim'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'tpope/vim-bundler'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mmozuras/vim-github-comment'
 NeoBundle 'mattn/webapi-vim'
+NeoBundle 'skalnik/vim-vroom'
+NeoBundle 'scrooloose/syntastic'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -76,8 +81,7 @@ set shiftwidth=2    " Indents will have a width of 4
 " Vim will interpret it to be having
 " a width of 4.
 set tabstop=2
-" Stop the highlighting for the 'hlsearch' option.
-" set nohlsearch
+set hlsearch
 " Split vertically to right
 set splitright
 " ignore case while search
