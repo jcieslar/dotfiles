@@ -37,3 +37,5 @@ fi
 if [ ! -L '~/.bash_profile' ]; then
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
 fi
+
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
