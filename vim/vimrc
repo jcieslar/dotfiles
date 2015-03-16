@@ -59,7 +59,10 @@ NeoBundleCheck
 set encoding=utf-8
 colorscheme jellybeans
 set colorcolumn=81
+let &colorcolumn=join(range(81,999),",")
 set t_Co=256
+" stop line breaking
+set nowrap
 " Turn off cursor blinking
 set gcr=n:blinkon0
 " nocompatible - break away from old vi compatibility
