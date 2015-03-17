@@ -40,6 +40,7 @@ NeoBundle 'mmozuras/vim-github-comment'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -57,10 +58,14 @@ NeoBundleCheck
 
 " Settings
 set encoding=utf-8
-colorscheme jellybeans
+syntax enable
+set t_Co=256
+let g:badwolf_darkgutter = 1
+set background=dark
+colorscheme badwolf
+" jellybeans
 set colorcolumn=81
 let &colorcolumn=join(range(81,999),",")
-set t_Co=256
 " stop line breaking
 set nowrap
 " Turn off cursor blinking
