@@ -41,6 +41,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -60,12 +61,12 @@ NeoBundleCheck
 set encoding=utf-8
 syntax enable
 set t_Co=256
-let g:badwolf_darkgutter = 1
 set background=dark
-colorscheme badwolf
-" jellybeans
+colorscheme gruvbox
+
 set colorcolumn=81
 let &colorcolumn=join(range(81,999),",")
+let g:used_javascript_libs = 'underscore,angularjs,angularui'
 " stop line breaking
 set nowrap
 " Turn off cursor blinking
