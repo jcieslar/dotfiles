@@ -56,4 +56,4 @@ alias rdbr='rake db:rollback'
 # laziness
 alias ch='google-chrome'
 alias chh='ch gmail.com facebook.com twitter.com github.com keep.google.com'
-alias chw='ch gmail.com monterail.harvestapp.com/time mail.google.com/mail/u/1/ github.com keep.google.com'
+alias chw='ch gmail.com monterail.harvestapp.com/time mail.google.com/mail/u/1/ github.com keep.google.com mail.google.com/mail/u/2/ trello.com'

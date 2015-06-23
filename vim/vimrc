@@ -158,3 +158,13 @@ silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 " Open NERDTree in new tabs and windows if no command line args set
 autocmd VimEnter * if !argc() | NERDTree | endif
 autocmd BufEnter * if !argc() | NERDTreeMirror | endif
+
+"map to bufergator
+let g:buffergator_suppress_keymaps = 1
+nnoremap <leader>bg :BuffergatorToggle<cr>
+
+"disable resizing when calling buffergator
+let g:buffergator_autoexpand_on_split = 0
+
+"hide buffers when not displayed
+set hidden
