@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 echo 'symlinks'
+
+if [ ! -L '~/.atom' ]; then
+  ln -s ~/dotfiles/atom ~/.atom
+fi
+
 if [ ! -L '~/.vimrc' ]; then
   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 fi
