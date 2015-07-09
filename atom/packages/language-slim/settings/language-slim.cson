@@ -1,6 +1,0 @@
-'.text.slim':
-  'editor':
-    'commentStart': '/ '
-  whitespace: 
-    removeTrailingWhitespace: false
-    ignoreWhitespaceOnCurrentLine: false
