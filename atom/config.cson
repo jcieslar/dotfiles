@@ -12,5 +12,9 @@
       "*.swp"
       "*.swn"
     ]
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
   editor:
     invisibles: {}
