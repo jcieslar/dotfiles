@@ -1,0 +1,15 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+atom-text-editor.is-focused::shadow {
+  ruler-view.rulerz {
+    position: absolute;
+    display: block;
+    height: 100%;
+    border-left: 1px solid @text-color-subtle;
+    z-index: 1;
+  }
+}
