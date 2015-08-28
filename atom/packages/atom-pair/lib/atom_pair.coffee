@@ -10,10 +10,12 @@ randomstring = null
 _ = null
 chunkString = null
 
-HipChatInvite = null
-SlackInvite = null
 AtomPairConfig = null
 CustomPaste = null
+Invitation = null
+HipChatInvitation = null
+SlackInvitation = null
+MessageQueue = null
 
 module.exports = AtomPair =
 
@@ -52,30 +54,32 @@ module.exports = AtomPair =
     randomstring = require 'randomstring'
     _ = require 'underscore'
 
-    HipChatInvite = require './modules/hipchat_invite'
-    SlackInvite = require './modules/slack_invite'
+    Invitation = require './modules/invitations/invitation'
+    HipChatInvitation = require './modules/invitations/hipchat_invitation'
+    SlackInvitation = require './modules/invitations/slack_invitation'
 
     AtomPairConfig = require './modules/atom_pair_config'
+    MessageQueue = require './modules/message_queue'
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:start new pairing session': => @startSession()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:start new pairing session': => new Invitation(@)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:invite over hipchat': => new HipChatInvitation(@)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:invite over slack': => new SlackInvitation(@)
     @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:join pairing session': => @joinSession()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:invite over hipchat': => @inviteOverHipChat()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:invite over slack': => @inviteOverSlack()
-
 
     @colours = require('./helpers/colour-list')
     @friendColours = []
-    _.extend(@, HipChatInvite, SlackInvite, AtomPairConfig)
+    _.extend(@, AtomPairConfig)
 
     @triggerPush = @engageTabListener = true
 
   disconnect: ->
     @pusher.disconnect()
     _.each @friendColours, (colour) => SharePane.each (pane) -> pane.clearMarkers(colour)
+    SharePane.all = []
     @markerColour = null
 
   joinSession: ->
@@ -94,36 +98,19 @@ module.exports = AtomPair =
       joinView.panel.hide()
       @pairingSetup()
 
-  startSession: ->
-
-    @getKeysFromConfig()
-
-    if @missingPusherKeys()
-      atom.notifications.addError('Please set your Pusher keys.')
-    else
-      @generateSessionId()
-      atom.clipboard.write(@sessionId)
-
-      atom.notifications.addInfo "Your session ID has been copied to your clipboard."
-
-      @markerColour = @colours[0]
-      @leader = true
-      @leaderColour = @markerColour
-
-      @pairingSetup()
-
   generateSessionId: ->
     @sessionId = "#{@app_key}-#{@app_secret}-#{randomstring.generate(11)}"
 
-  ensureActiveTextEditor: ->
+  ensureActiveTextEditor: (fn)->
     editor = atom.workspace.getActiveTextEditor()
     if !editor
-      @triggerPush = false
-      atom.workspace.open().then =>
-        @ensureActiveTextEditor()
+      @engageTabListener = false
+      atom.workspace.open().then (editor)->
+        @engageTabListener = true
+        fn(editor)
     else
-      @triggerPush = true
-      editor
+      @engageTabListener = true
+      fn(editor)
 
   pairingSetup: ->
     @connectToPusher()
@@ -137,6 +124,8 @@ module.exports = AtomPair =
         key: @app_key
         secret: @app_secret
         user_id: @markerColour || "blank"
+
+    @queue = new MessageQueue(@pusher)
 
     @globalChannel = @pusher.subscribe("presence-session-#{@sessionId}")
 
@@ -155,17 +144,21 @@ module.exports = AtomPair =
     @connectToPusher()
     @synchronizeColours()
 
-  setUpLeadership: ->
-    editor = @ensureActiveTextEditor()
-
-    sharePane = new SharePane({
+  createSharePane: (editor, id) ->
+    options = {
       editor: editor,
       pusher: @pusher,
       sessionId: @sessionId,
-      markerColour: @markerColour
-    })
+      markerColour: @markerColour,
+      queue: @queue,
+      id: id
+    }
 
+    new SharePane(options)
 
+  setUpLeadership: ->
+    @ensureActiveTextEditor =>
+      _.each atom.workspace.getTextEditors(), (editor) => @createSharePane(editor)
 
   startPairing: ->
 
@@ -180,22 +173,12 @@ module.exports = AtomPair =
       sharePane.sendGrammar()
 
     @globalChannel.bind 'client-create-share-pane', (data) =>
-      # return if SharePane.id(data.paneId)
       return unless data.to is @markerColour or data.to is 'all'
       paneId = data.paneId
       @engageTabListener = false
       atom.workspace.open().then (editor)=>
-        console.log 'told to create new sharepane'
-        sharePane = new SharePane({
-          id: paneId,
-          pusher: @pusher,
-          editor: editor,
-          sessionId: @sessionId,
-          markerColour: @markerColour
-        })
-
-        console.log('created share pane')
-        @globalChannel.trigger 'client-created-share-pane', {to: data.from, paneId: paneId}
+        @createSharePane(editor, paneId)
+        @queue.add(@globalChannel.name, 'client-created-share-pane', {to: data.from, paneId: paneId})
         @engageTabListener = true
 
     # GLOBAL
@@ -204,13 +187,12 @@ module.exports = AtomPair =
       @friendColours.push(member.id)
       return unless @leader
       SharePane.each (sharePane) =>
-        @globalChannel.trigger('client-create-share-pane', {
+        @queue.add(@globalChannel.name, 'client-create-share-pane', {
           to: member.id,
           from: @markerColour,
           paneId: sharePane.id
         })
         sharePane.addMarker(0, member.id)
-
 
     # GLOBAL
     @globalChannel.bind 'pusher:member_removed', (member) =>
@@ -220,25 +202,15 @@ module.exports = AtomPair =
       @leaderColour = _.sortBy(colours, (el) => @colours.indexOf(el))[0]
       if @leaderColour is @markerColour then @leader = true
 
-    # listening for its own demise
     @listenForDestruction()
-
-
 
   listenForNewTab: ->
     atom.workspace.onDidOpen (e) =>
       return unless @engageTabListener
       editor = e.item
-      console.log 'new sharepane cause new tab'
-      sharePane = new SharePane({
-        pusher: @pusher,
-        editor: editor,
-        sessionId: @sessionId,
-        markerColour: @markerColour
-      })
-
-      return unless @triggerPush
-      @globalChannel.trigger('client-create-share-pane', {
+      return unless editor.constructor.name is "TextEditor"
+      sharePane = @createSharePane(editor)
+      @queue.add(@globalChannel.name, 'client-create-share-pane', {
         to: 'all',
         from: @markerColour,
         paneId: sharePane.id
@@ -246,5 +218,4 @@ module.exports = AtomPair =
 
   listenForDestruction: ->
     SharePane.globalEmitter.on 'disconnected', =>
-      console.log('disconnect')
       if (_.all SharePane.all, (pane) => !pane.connected) then @disconnect()
