@@ -1,4 +1,5 @@
 # AtomPair
+[![Build Status](https://travis-ci.org/pusher/atom-pair.svg?branch=tweaks)](https://travis-ci.org/pusher/atom-pair)
 
 Remote pairing within the [Atom](http://atom.io) text editor, powered by Pusher.
 
@@ -43,7 +44,7 @@ If you have admin privileges in a HipChat organization, go to your Package Setti
 
 Now, when you enter `AtomPair: Invite Over HipChat` and enter your collaborator's HipChat @mention_name in the command palette, they will receive an invitation with a session ID.
 
-![HipChat Invite](images/hipchat.jpg)
+![HipChat Invite](https://raw.githubusercontent.com/pusher/atom-pair/master/images/hipchat.jpg)
 
 #### Slack Invitation
 
@@ -51,11 +52,11 @@ If you use [Slack](https://slack.com/) instead of HipChat, we have you covered f
 
 To send the invite, simply enter "AtomPair: Invite Over Slack" and enter either the channel you want to send the invite to _(#channel)_ or the person you want to send the invite to _(@person)_.  Once you do, all they have to do is join the session with the session ID and you'll be pair programming!
 
-![Slack Invite](images/slack.jpg)
+![Slack Invite](https://raw.githubusercontent.com/pusher/atom-pair/master/images/slack.jpg)
 
 ### Collaborate!
 
-![Demo](images/demo.gif)
+![Demo](https://raw.githubusercontent.com/pusher/atom-pair/master/images/demo.gif)
 
 Once your partner has a session ID, they should go to the command pallette and hit `AtomPair: Join a pairing session`, and enter the ID.
 
@@ -74,6 +75,7 @@ Currently, you are given default Pusher credentials when you install the package
 Here is a current list of features:
 
 * Text synchronization
+* Multiple tab syncing
 * File-sharing
 * HipChat invitations
 * Slack invitations
@@ -81,6 +83,31 @@ Here is a current list of features:
 * Collaborator visibility.
 
 But if there are any features you find lacking, feel more than welcome to [get in touch](<mailto:jamie@pusher.com>).
+
+### Running Tests
+
+To run the tests, just type into your command line at the root of the project:
+  
+    $ apm test
+
+### Adding New Methods of Invitation
+
+Currently there is support for inviting people over HipChat and Slack. If you would like to invite friends or colleagues through any other integration, there is a mini-API to make this more simple. All you have to do is inherit from our `Invitation` class and implement two methods:
+
+```coffee
+class YourInvitation extends Invitation
+
+  checkConfig: ->
+     # Must be implemented
+     # Returns false if they are missing your integration's API keys, otherwise true.
+
+  send: (callback)->
+    # Must be implemented
+    # Send your invitation and simple call the callback when you're done.
+
+```
+
+See [here](https://github.com/pusher/atom-pair/blob/master/lib/modules/invitations/slack_invitation.coffee) for an example.
 
 ## Credits
 

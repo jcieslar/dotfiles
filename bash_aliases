@@ -46,7 +46,7 @@ alias b='bundle'
 
 # rails
 alias rc='be rails c'
-alias rs='be rails s'
+alias rs='be rails s -p 3000 -b lvh.me'
 alias rspec='clear; be rspec --color'
 alias log='tail -f log/development.log'
 alias rr='rake routes'

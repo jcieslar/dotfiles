@@ -18,3 +18,8 @@
     ]
   editor:
     invisibles: {}
+    fontSize: 15
+    tabType: "soft"
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+    removeTrailingWhitespace: true
