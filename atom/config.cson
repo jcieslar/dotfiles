@@ -16,10 +16,25 @@
       "one-dark-ui"
       "monokai"
     ]
+    disabledPackages: [
+      "pigments"
+      "atom-pair"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-python"
+      "language-java"
+      "language-go"
+      "language-csharp"
+      "language-clojure"
+      "language-c"
+    ]
   editor:
     invisibles: {}
-    fontSize: 15
     tabType: "soft"
+    fontSize: 15
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
     removeTrailingWhitespace: true
+  pigments: {}
+  "atom-pair": {}

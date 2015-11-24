@@ -1,11 +1,11 @@
 {
   "name": "rulerz",
   "main": "./lib/main",
-  "version": "0.3.3",
+  "version": "0.4.1",
   "description": "Mark each cursor with a vertical ruler.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/forgecrafted/rulerz"
+    "url": "git+https://github.com/forgecrafted/rulerz.git"
   },
   "license": "MIT",
   "engines": {
@@ -19,16 +19,16 @@
     "vertical"
   ],
   "dependencies": {},
-  "readme": "# rulerz\n\n##### By the guys at [Forge Software](http://www.forgecrafted.com/)\n\nA simple Atom [package](https://atom.io/packages/rulerz) to mark each of your cursors with a vertical ruler. Inspired by the Sublime Text plugin [CursorRuler](https://github.com/icylace/CursorRuler).\n\n[![screencast gif](https://cloud.githubusercontent.com/assets/281467/5994471/d3648c72-aa42-11e4-8916-bdd4705ed55c.gif)](http://www.forgecrafted.com)\n\n## Configuration\n\nConfigure rulerz in the package settings (`ctrl-,`) dialog, or manually in your `config.cson`. The following settings are currently supported:\n\n#### enabled (*boolean*) - turn rulerz on or off\n\nExample:\n\n```coffee\n  rulerz:\n    enabled: true\n```\n\n#### width (*integer*) - the width (in pixels) of each ruler\n\nExample:\n\n```coffee\n  rulerz:\n    width: 1\n```\n\n## Contributing\n\nPlease [report any issues on Github](https://github.com/forgecrafted/rulerz/issues).\n\nPatches welcome and encouraged.\n\n1. Fork it\n2. Create your feature branch (`git checkout -b my-new-feature`)\n3. Commit your changes (`git commit -am 'Add some feature'`)\n4. Push to the branch (`git push origin my-new-feature`)\n5. Create new Pull Request\n\n## Credits\n\n[![forge software](http://www.forgecrafted.com/logo.png)](http://www.forgecrafted.com)\n\nrulerz is maintained and funded by [Forge Software (forgecrafted.com)](http://www.forgecrafted.com).\n\nIf you like our code, please give us a hollar if your company needs outside pro's who can write good code AND run servers at the same time!\n\n## License\n\nMIT, of course! Rulerz is Copyright Forge Software, LLC. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE.md) file.\n",
+  "readme": "# rulerz\n\n##### By the guys at [Forge Software](http://www.forgecrafted.com/)\n\nA simple Atom [package](https://atom.io/packages/rulerz) to mark each of your cursors with a vertical ruler. Inspired by the Sublime Text plugin [CursorRuler](https://github.com/icylace/CursorRuler).\n\n[![screencast gif](https://cloud.githubusercontent.com/assets/281467/5994471/d3648c72-aa42-11e4-8916-bdd4705ed55c.gif)](http://www.forgecrafted.com)\n\n## Styles\n\nYou can change the appearance of the rulers by adding a rule to [your stylesheet](https://atom.io/docs/latest/using-atom-basic-customization#style-tweaks). For example:\n\n```less\natom-text-editor.is-focused::shadow {\n  ruler-view.rulerz {\n    border-left: 1px solid black;\n  }\n}\n```\n\nThe default color is taken from the variable `@text-color-subtle`. By continuing to base your ruler color on this value (modified with LESS functions), your ruler will match whatever syntax theme you have active:\n\n```less\natom-text-editor.is-focused::shadow {\n  ruler-view.rulerz {\n    border-left: 1px dotted fade(mix(@text-color-subtle, limegreen), 5%);\n  }\n}\n```\n\n## Contributing\n\nPlease [report any issues on Github](https://github.com/forgecrafted/rulerz/issues).\n\nPatches welcome and encouraged.\n\n1. Fork it\n2. Create your feature branch (`git checkout -b my-new-feature`)\n3. Commit your changes (`git commit -am 'Add some feature'`)\n4. Push to the branch (`git push origin my-new-feature`)\n5. Create new Pull Request\n\n## Credits\n\n[![forge software](http://www.forgecrafted.com/logo.png)](http://www.forgecrafted.com)\n\nrulerz is maintained and funded by [Forge Software (forgecrafted.com)](http://www.forgecrafted.com).\n\nIf you like our code, please give us a hollar if your company needs outside pro's who can write good code AND run servers at the same time!\n\n## License\n\nMIT, of course! Rulerz is Copyright Forge Software, LLC. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE.md) file.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/forgecrafted/rulerz/issues"
   },
-  "homepage": "https://github.com/forgecrafted/rulerz",
-  "_id": "rulerz@0.3.3",
-  "_shasum": "c4b4f29fd1873336696746d8365133b47aa57191",
-  "_resolved": "file:../d-115728-39754-1yuhvjv/package.tgz",
-  "_from": "../d-115728-39754-1yuhvjv/package.tgz",
+  "homepage": "https://github.com/forgecrafted/rulerz#readme",
+  "_id": "rulerz@0.4.1",
+  "_shasum": "78bd5b064e9ae8ef717dc08f114194b7f7eba199",
+  "_resolved": "file:../d-115930-2763-tzplgp/package.tgz",
+  "_from": "../d-115930-2763-tzplgp/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

@@ -24,6 +24,8 @@ class DecorationManagement extends Mixin
 
     Decoration ?= require '../decoration'
 
+  getDecorations: -> decoration for id,decoration of @decorationsById
+
   # Registers an event listener to the `did-add-decoration` event.
   #
   # callback - The {Function} to call when the event is triggered.
@@ -135,10 +137,11 @@ class DecorationManagement extends Mixin
 
     @decorationsByTypeThenRowsCache = cache
 
+  # Internal: Invalidates the decoration by screen rows cache.
   invalidateDecorationForScreenRowsCache: ->
     @decorationsByTypeThenRowsCache = null
 
-  # Public: Adds a decoration that tracks a `Marker`. When the marker moves,
+  # Adds a decoration that tracks a `Marker`. When the marker moves,
   # is invalidated, or is destroyed, the decoration will be updated to reflect
   # the marker's state.
   #
@@ -225,6 +228,15 @@ class DecorationManagement extends Mixin
     @emitter.emit 'did-add-decoration', {marker, decoration}
     decoration
 
+  # Internal: Given two ranges, it returns an {Array} of ranges representing the
+  # differences between them.
+  #
+  # oldStart - The row index of the first range start.
+  # oldEnd - The row index of the first range end.
+  # newStart - The row index of the second range start.
+  # newEnd - The row index of the second range end.
+  #
+  # Returns an {Array}.
   computeRangesDiffs: (oldStart, oldEnd, newStart, newEnd) ->
     diffs = []
 

@@ -1,4 +1,16 @@
-### 0.2.1 (2015-05-22)
+### 0.3.3 (2015-10-14)
+* rollback fixing emmet's tab autocompletion
+
+### 0.3.1 (2015-10-10)
+
+* support normailzed angular's tags and attributes
+  (e.g data-ng-if, x-ng-if)(#44)
+
+#### Bug fixes
+* fix confict with emmet's tab autocompletion(#19)
+* fix wrong syntax highlight(#42, #43)
+
+### 0.3.0 (2015-05-23)
 
 #### Bug fixes
 * fix Atom update problem that Atom doen't update

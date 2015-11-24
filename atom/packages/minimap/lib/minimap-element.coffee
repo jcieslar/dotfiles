@@ -1,10 +1,12 @@
 {debounce} = require 'underscore-plus'
-{CompositeDisposable, Disposable} = require 'event-kit'
-{EventsDelegation, AncestorsMethods} = require 'atom-utils'
+{CompositeDisposable, Disposable} = require 'atom'
+{registerOrUpdateElement, EventsDelegation, AncestorsMethods} = require 'atom-utils'
 DOMStylesReader = require './mixins/dom-styles-reader'
 CanvasDrawer = require './mixins/canvas-drawer'
 
 MinimapQuickSettingsElement = null
+
+SPEC_MODE = atom.inSpecMode()
 
 # Public: The {MinimapElement} is the view meant to render a {Minimap} instance
 # in the DOM.
@@ -18,7 +20,7 @@ MinimapQuickSettingsElement = null
 #
 # Note that most interactions with the Minimap package is done through the
 # {Minimap} model so you should never have to access {MinimapElement} instances.
-class MinimapElement extends HTMLElement
+class MinimapElement
   DOMStylesReader.includeInto(this)
   CanvasDrawer.includeInto(this)
   EventsDelegation.includeInto(this)
@@ -49,7 +51,7 @@ class MinimapElement extends HTMLElement
         @updateMinimapFlexPosition()
 
       'minimap.minimapScrollIndicator': (@minimapScrollIndicator) =>
-        if @minimapScrollIndicator and not @scrollIndicator?
+        if @minimapScrollIndicator and not @scrollIndicator? and not @standAlone
           @initializeScrollIndicator()
         else if @scrollIndicator?
           @disposeScrollIndicator()
@@ -57,7 +59,7 @@ class MinimapElement extends HTMLElement
         @requestUpdate() if @attached
 
       'minimap.displayPluginsControls': (@displayPluginsControls) =>
-        if @displayPluginsControls and not @openQuickSettings?
+        if @displayPluginsControls and not @openQuickSettings? and not @standAlone
           @initializeOpenQuickSettings()
         else if @openQuickSettings?
           @disposeOpenQuickSettings()
@@ -77,7 +79,8 @@ class MinimapElement extends HTMLElement
       'minimap.absoluteMode': (@absoluteMode) =>
         @classList.toggle('absolute', @absoluteMode)
 
-      'editor.preferredLineLength': => @requestUpdate() if @attached
+      'editor.preferredLineLength': =>
+        @measureHeightAndWidth() if @attached
 
       'editor.softWrap': => @requestUpdate() if @attached
 
@@ -162,32 +165,57 @@ class MinimapElement extends HTMLElement
 
     @shadowRoot.appendChild(@canvas)
 
+    @createVisibleArea()
+    @createControls()
+
+    @subscriptions.add @subscribeTo this,
+      'mousewheel': (e) => @relayMousewheelEvent(e) unless @standAlone
+
+    @subscriptions.add @subscribeTo @canvas,
+      'mousedown': (e) => @mousePressedOverCanvas(e)
+
+  # Initializes the visible area div.
+  createVisibleArea: ->
+    return if @visibleArea?
+
     @visibleArea = document.createElement('div')
     @visibleArea.classList.add('minimap-visible-area')
     @shadowRoot.appendChild(@visibleArea)
+
+    @visibleAreaSubscription = @subscribeTo @visibleArea,
+      'mousedown': (e) => @startDrag(e)
+      'touchstart': (e) => @startDrag(e)
+
+    @subscriptions.add(@visibleAreaSubscription)
+
+  # Removes the visible area div.
+  removeVisibleArea: ->
+    return unless @visibleArea?
+
+    @subscriptions.remove(@visibleAreaSubscription)
+    @visibleAreaSubscription.dispose()
+    @shadowRoot.removeChild(@visibleArea)
+    delete @visibleArea
+
+  # Creates the controls container div.
+  createControls: ->
+    return if @controls? or @standAlone
 
     @controls = document.createElement('div')
     @controls.classList.add('minimap-controls')
     @shadowRoot.appendChild(@controls)
 
-    elementMousewheel = (e) => @relayMousewheelEvent(e)
-    canvasMousedown = (e) => @mousePressedOverCanvas(e)
-    visibleAreaMousedown = (e) => @startDrag(e)
+  removeControls: ->
+    return unless @controls?
 
-    @addEventListener 'mousewheel', elementMousewheel
-    @canvas.addEventListener 'mousedown', canvasMousedown
-    @visibleArea.addEventListener 'mousedown', visibleAreaMousedown
-    @visibleArea.addEventListener 'touchstart', visibleAreaMousedown
-
-    @subscriptions.add new Disposable =>
-      @removeEventListener 'mousewheel', elementMousewheel
-      @canvas.removeEventListener 'mousedown', canvasMousedown
-      @visibleArea.removeEventListener 'mousedown', visibleAreaMousedown
-      @visibleArea.removeEventListener 'touchstart', visibleAreaMousedown
+    @shadowRoot.removeChild(@controls)
+    delete @controls
 
   # Initializes the scroll indicator div when the `minimapScrollIndicator`
   # settings is enabled.
   initializeScrollIndicator: ->
+    return if @scrollIndicator? or @standAlone
+
     @scrollIndicator = document.createElement('div')
     @scrollIndicator.classList.add 'minimap-scroll-indicator'
     @controls.appendChild(@scrollIndicator)
@@ -195,13 +223,15 @@ class MinimapElement extends HTMLElement
   # Disposes the scroll indicator div when the `minimapScrollIndicator`
   # settings is disabled.
   disposeScrollIndicator: ->
+    return unless @scrollIndicator?
+
     @controls.removeChild(@scrollIndicator)
-    @scrollIndicator = undefined
+    delete @scrollIndicator
 
   # Initializes the quick settings openener div when the
   # `displayPluginsControls` setting is enabled.
   initializeOpenQuickSettings: ->
-    return if @openQuickSettings?
+    return if @openQuickSettings? or @standAlone
 
     @openQuickSettings = document.createElement('div')
     @openQuickSettings.classList.add 'open-minimap-quick-settings'
@@ -291,20 +321,35 @@ class MinimapElement extends HTMLElement
     @subscriptions.add @minimap.onDidDestroy => @destroy()
     @subscriptions.add @minimap.onDidChangeConfig =>
       @requestForcedUpdate() if @attached
+
     @subscriptions.add @minimap.onDidChangeStandAlone =>
-      if @minimap.isStandAlone()
-        @setAttribute('stand-alone', true)
-      else
-        @removeAttribute('stand-alone')
+      @setStandAlone(@minimap.isStandAlone())
       @requestUpdate()
+
     @subscriptions.add @minimap.onDidChange (change) =>
       @pendingChanges.push(change)
       @requestUpdate()
 
-    @setAttribute('stand-alone', true) if @minimap.isStandAlone()
+    @setStandAlone(@minimap.isStandAlone())
+
     @minimap.setScreenHeightAndWidth(@height, @width) if @width? and @height?
 
     @minimap
+
+  setStandAlone: (@standAlone) ->
+    if @standAlone
+      @setAttribute('stand-alone', true)
+      @disposeScrollIndicator()
+      @disposeOpenQuickSettings()
+      @removeControls()
+      @removeVisibleArea()
+
+    else
+      @removeAttribute('stand-alone')
+      @createVisibleArea()
+      @createControls()
+      @initializeScrollIndicator() if @minimapScrollIndicator
+      @initializeOpenQuickSettings() if @displayPluginsControls
 
   #    ##     ## ########  ########     ###    ######## ########
   #    ##     ## ##     ## ##     ##   ## ##      ##    ##
@@ -333,45 +378,64 @@ class MinimapElement extends HTMLElement
   # Internal: Performs the actual {MinimapElement} update.
   update: ->
     return unless @attached and @isVisible() and @minimap?
+    minimap = @minimap
+    minimap.enableCache()
 
-    if @adjustToSoftWrap and @marginRight?
-      @style.marginRight = @marginRight + 'px'
-    else
-      @style.marginRight = null
-
-    visibleAreaLeft = @minimap.getTextEditorScaledScrollLeft()
-    visibleAreaTop = @minimap.getTextEditorScaledScrollTop() - @minimap.getScrollTop()
+    visibleAreaLeft = minimap.getTextEditorScaledScrollLeft()
+    visibleAreaTop = minimap.getTextEditorScaledScrollTop() - minimap.getScrollTop()
     visibleWidth = Math.min(@canvas.width / devicePixelRatio, @width)
 
-    @applyStyles @visibleArea,
-      width: visibleWidth + 'px'
-      height: @minimap.getTextEditorScaledHeight() + 'px'
-      transform: @makeTranslate(visibleAreaLeft, visibleAreaTop)
+    if @adjustToSoftWrap and @flexBasis
+      @style.flexBasis = @flexBasis + 'px'
+    else
+      @style.flexBasis = null
+
+    if SPEC_MODE
+      @applyStyles @visibleArea,
+        width: visibleWidth + 'px'
+        height: minimap.getTextEditorScaledHeight() + 'px'
+        top: visibleAreaTop + 'px'
+        left: visibleAreaLeft + 'px'
+    else
+      @applyStyles @visibleArea,
+        width: visibleWidth + 'px'
+        height: minimap.getTextEditorScaledHeight() + 'px'
+        transform: @makeTranslate(visibleAreaLeft, visibleAreaTop)
 
     @applyStyles @controls,
       width: visibleWidth + 'px'
 
-    canvasTop = @minimap.getFirstVisibleScreenRow() * @minimap.getLineHeight() - @minimap.getScrollTop()
+    canvasTop = minimap.getFirstVisibleScreenRow() * minimap.getLineHeight() - minimap.getScrollTop()
 
     canvasTransform = @makeTranslate(0, canvasTop)
     canvasTransform += " " + @makeScale(1 / devicePixelRatio) if devicePixelRatio isnt 1
-    @applyStyles @canvas, transform: canvasTransform
 
-    if @minimapScrollIndicator and @minimap.canScroll() and not @scrollIndicator
+    if SPEC_MODE
+      @applyStyles @canvas, top: canvasTop + 'px'
+    else
+      @applyStyles @canvas, transform: canvasTransform
+
+    if @minimapScrollIndicator and minimap.canScroll() and not @scrollIndicator
       @initializeScrollIndicator()
 
     if @scrollIndicator?
-      minimapScreenHeight = @minimap.getScreenHeight()
-      indicatorHeight = minimapScreenHeight * (minimapScreenHeight / @minimap.getHeight())
-      indicatorScroll = (minimapScreenHeight - indicatorHeight) * @minimap.getCapedTextEditorScrollRatio()
+      minimapScreenHeight = minimap.getScreenHeight()
+      indicatorHeight = minimapScreenHeight * (minimapScreenHeight / minimap.getHeight())
+      indicatorScroll = (minimapScreenHeight - indicatorHeight) * minimap.getCapedTextEditorScrollRatio()
 
-      @applyStyles @scrollIndicator,
-        height: indicatorHeight + 'px'
-        transform: @makeTranslate(0, indicatorScroll)
+      if SPEC_MODE
+        @applyStyles @scrollIndicator,
+          height: indicatorHeight + 'px'
+          top: indicatorScroll + 'px'
+      else
+        @applyStyles @scrollIndicator,
+          height: indicatorHeight + 'px'
+          transform: @makeTranslate(0, indicatorScroll)
 
-      @disposeScrollIndicator() if not @minimap.canScroll()
+      @disposeScrollIndicator() if not minimap.canScroll()
 
     @updateCanvas()
+    minimap.clearCache()
 
   # Defines whether to render the code highlights or not.
   #
@@ -432,13 +496,13 @@ class MinimapElement extends HTMLElement
         softWrapAtPreferredLineLength = atom.config.get('editor.softWrapAtPreferredLineLength')
         width = lineLength * @minimap.getCharWidth()
 
-        if softWrap and softWrapAtPreferredLineLength and lineLength and width < @width
-          @marginRight = width - @width
+        if softWrap and softWrapAtPreferredLineLength and lineLength and width <= @width
+          @flexBasis = width
           canvasWidth = width
         else
-          @marginRight = null
+          delete @flexBasis
       else
-        delete @marginRight
+        delete @flexBasis
 
       if canvasWidth isnt @canvas.width or @height isnt @canvas.height
         @canvas.width = canvasWidth * devicePixelRatio
@@ -475,23 +539,31 @@ class MinimapElement extends HTMLElement
       @startDrag({which: 2, pageY: top + height/2}) # ugly hack
     else return
 
+  # Internal: Callback triggered when the mouse left button is pressed on the
+  # {MinimapElement} canvas.
+  #
+  # event - The {Event} object.
   leftMousePressedOverCanvas: ({pageY, target}) ->
     y = pageY - target.getBoundingClientRect().top
     row = Math.floor(y / @minimap.getLineHeight()) + @minimap.getFirstVisibleScreenRow()
 
     textEditor = @minimap.getTextEditor()
 
-    scrollTop = row * textEditor.getLineHeightInPixels() - textEditor.getHeight() / 2
+    scrollTop = row * textEditor.getLineHeightInPixels() - @minimap.getTextEditorHeight() / 2
 
     if atom.config.get('minimap.scrollAnimation')
-      from = textEditor.getScrollTop()
+      from = @minimap.getTextEditorScrollTop()
       to = scrollTop
-      step = (now) -> textEditor.setScrollTop(now)
+      step = (now) => @minimap.setTextEditorScrollTop(now)
       duration = atom.config.get('minimap.scrollAnimationDuration')
       @animate(from: from, to: to, duration: duration, step: step)
     else
-      textEditor.setScrollTop(scrollTop)
+      @minimap.setTextEditorScrollTop(scrollTop)
 
+  # Internal: Callback triggered when the mouse middle button is pressed on the
+  # {MinimapElement} canvas.
+  #
+  # event - The {Event} object.
   middleMousePressedOverCanvas: ({pageY}) ->
     {top: offsetTop} = @getBoundingClientRect()
     y = pageY - offsetTop - @minimap.getTextEditorScaledHeight()/2
@@ -499,7 +571,7 @@ class MinimapElement extends HTMLElement
     ratio = y /
       (@minimap.getVisibleHeight() - @minimap.getTextEditorScaledHeight())
 
-    @minimap.textEditor.setScrollTop(
+    @minimap.setTextEditorScrollTop(
       ratio * @minimap.getTextEditorMaxScrollTop())
 
   # Internal: A method that relays the `mousewheel` events received by
@@ -568,7 +640,7 @@ class MinimapElement extends HTMLElement
 
     ratio = y / (@minimap.getVisibleHeight() - @minimap.getTextEditorScaledHeight())
 
-    @minimap.textEditor.setScrollTop(ratio * @minimap.getTextEditorMaxScrollTop())
+    @minimap.setTextEditorScrollTop(ratio * @minimap.getTextEditorMaxScrollTop())
 
   # Internal: The method that ends the drag gesture.
   #
@@ -596,10 +668,10 @@ class MinimapElement extends HTMLElement
   # styles - An {Object} where the keys are the properties name and the values
   #          are the CSS values for theses properties.
   applyStyles: (element, styles) ->
-    cssText = ''
+    return unless element?
 
-    for property,value of styles
-      cssText += "#{property}: #{value}; "
+    cssText = ''
+    cssText += "#{property}: #{value}; " for property,value of styles
 
     element.style.cssText = cssText
 
@@ -673,7 +745,8 @@ class MinimapElement extends HTMLElement
 #    ##       ##       ##       ##     ## ##       ##   ###    ##
 #    ######## ######## ######## ##     ## ######## ##    ##    ##
 
-module.exports = MinimapElement = document.registerElement 'atom-text-editor-minimap', prototype: MinimapElement.prototype
+module.exports =
+MinimapElement = registerOrUpdateElement 'atom-text-editor-minimap', MinimapElement.prototype
 
 # Public: The method that registers the {MinimapElement} factory in the
 # `atom.views` registry with the passed-in model.

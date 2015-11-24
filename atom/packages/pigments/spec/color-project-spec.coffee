@@ -5,8 +5,7 @@ temp = require 'temp'
 {SERIALIZE_VERSION, SERIALIZE_MARKERS_VERSION} = require '../lib/versions'
 ColorProject = require '../lib/color-project'
 ColorBuffer = require '../lib/color-buffer'
-jsonFixture = require('./spec-helper').jsonFixture(__dirname, 'fixtures')
-require '../lib/register-elements'
+jsonFixture = require('./helpers/fixtures').jsonFixture(__dirname, 'fixtures')
 {click} = require './helpers/events'
 
 TOTAL_VARIABLES_IN_PROJECT = 12
@@ -30,6 +29,9 @@ describe 'ColorProject', ->
       sourceNames: ['*.less']
       ignoredScopes: ['\\.comment']
     })
+
+  afterEach ->
+    project.destroy()
 
   describe '.deserialize', ->
     it 'restores the project in its previous state', ->
@@ -486,7 +488,7 @@ describe 'ColorProject', ->
 
           waitsFor -> eventSpy.callCount > 0
 
-        it 'removes every variables from the file', ->
+        it 'removes every variable from the file', ->
           expect(colorBuffer.scanBufferForVariables).toHaveBeenCalled()
           expect(project.getVariables().length).toEqual(0)
 
@@ -791,7 +793,7 @@ describe 'ColorProject', ->
         atom.themes.deactivateThemes()
         atom.themes.unwatchUserStylesheet()
 
-      it 'includes the variables set for ui and syntaxt themes in the palette', ->
+      it 'includes the variables set for ui and syntax themes in the palette', ->
         expect(project.getColorVariables().length).toEqual(72)
 
       it 'still includes the paths from the project', ->

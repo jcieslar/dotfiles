@@ -59,6 +59,12 @@ describe 'directive grammar', ->
 
       expect(lines[0][3]).toEqual value: 'ng-options', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
 
+    it 'tokenizes ng- attributes for anchor tags', ->
+      lines = grammar.tokenizeLines '''
+        <a href="/url" ng-click='{{setImage(img)}}'>
+      '''
+      expect(lines[0][9]).toEqual value: 'ng-click', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
+
   describe 'directive element', ->
     it 'tokenizes ng-include element inside HTML', ->
       lines = grammar.tokenizeLines '''
@@ -75,6 +81,67 @@ describe 'directive grammar', ->
 
       expect(lines[0][1]).toEqual value: 'NG-INCLUDE', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
       expect(lines[0][5]).toEqual value: 'NG-INCLUDE', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+
+  describe 'normalization angular tag and attribute', ->
+    it 'tokenizes data- prefixed angular attributes', ->
+      lines = grammar.tokenizeLines '''
+        <body data-ng-controller="TestCtrl">
+      '''
+
+      expect(lines[0][3]).toEqual value: 'data-ng-controller', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
+
+    it 'tokenizes x- prefixed angular attributes', ->
+      lines = grammar.tokenizeLines '''
+        <body x-ng-controller="TestCtrl">
+      '''
+
+      expect(lines[0][3]).toEqual value: 'x-ng-controller', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
+
+    it 'tokenizes _ suffixed angular attributes', ->
+      lines = grammar.tokenizeLines '''
+        <body ng_controller="TestCtrl">
+      '''
+
+      expect(lines[0][3]).toEqual value: 'ng_controller', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
+
+    it 'tokenizes : suffixed angular attributes', ->
+      lines = grammar.tokenizeLines '''
+        <body ng:controller="TestCtrl">
+      '''
+
+      expect(lines[0][3]).toEqual value: 'ng:controller', scopes: ['text.html.angular', 'meta.tag.inline.any.html', 'meta.attribute.html.angular', 'entity.other.attribute-name.html.angular']
+
+    it 'tokenizes data- prefixed angular element', ->
+      lines = grammar.tokenizeLines '''
+        <data-ng-include src=""></data-ng-include>
+      '''
+
+      expect(lines[0][1]).toEqual value: 'data-ng-include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+      expect(lines[0][5]).toEqual value: 'data-ng-include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+
+    it 'tokenizes x- prefixed angular element', ->
+      lines = grammar.tokenizeLines '''
+        <x-ng-include src=""></x-ng-include>
+      '''
+
+      expect(lines[0][1]).toEqual value: 'x-ng-include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+      expect(lines[0][5]).toEqual value: 'x-ng-include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+
+    it 'tokenizes _ suffixed angular element', ->
+      lines = grammar.tokenizeLines '''
+        <ng_include src=""></ng_include>
+      '''
+
+      expect(lines[0][1]).toEqual value: 'ng_include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+      expect(lines[0][5]).toEqual value: 'ng_include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+
+    it 'tokenizes : suffixed angular element', ->
+      lines = grammar.tokenizeLines '''
+        <ng:include src=""></ng:include>
+      '''
+
+      expect(lines[0][1]).toEqual value: 'ng:include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
+      expect(lines[0][5]).toEqual value: 'ng:include', scopes: ['text.html.angular', 'meta.tag.block.any.html', 'entity.name.tag.block.any.html.angular']
 
   describe 'angular expression', ->
     it 'tokenizes angular expressions in HTML tags', ->
