@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"3024 Color Scheme",
+		"AdvancedNewFile",
+		"Alignment",
+		"All Autocomplete",
+		"AngularJS (CoffeeScript)",
+		"Better CoffeeScript",
+		"CursorRuler",
+		"Elixir",
+		"Emmet",
+		"Gist",
+		"Git",
+		"GitGutter",
+		"Haml",
+		"Package Control",
+		"RSpec",
+		"Ruby Slim",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter-haml",
+		"Theme - Afterglow"
+	]
+}
