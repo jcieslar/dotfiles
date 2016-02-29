@@ -14,3 +14,7 @@ and
 ```
 Launch vim, run :NeoBundleInstall
 ```
+
+## Sublime syncing
+
+https://packagecontrol.io/docs/syncing

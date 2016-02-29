@@ -1,21 +1,6 @@
 "*":
-  "exception-reporting":
-    userId: "97819b7a-541a-69f2-c91f-0277d0771dcf"
-  welcome:
-    showOnStartup: false
-  "tree-view":
-    hideIgnoredNames: true
+  "atom-pair": {}
   core:
-    ignoredNames: [
-      ".git"
-      "*.swo"
-      "*.swp"
-      "*.swn"
-    ]
-    themes: [
-      "one-dark-ui"
-      "monokai"
-    ]
     disabledPackages: [
       "pigments"
       "atom-pair"
@@ -29,12 +14,27 @@
       "language-clojure"
       "language-c"
     ]
+    ignoredNames: [
+      ".git"
+      "*.swo"
+      "*.swp"
+      "*.swn"
+    ]
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
   editor:
+    fontSize: 15
     invisibles: {}
     tabType: "soft"
-    fontSize: 15
+  "exception-reporting":
+    userId: "97819b7a-541a-69f2-c91f-0277d0771dcf"
+  pigments: {}
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
     removeTrailingWhitespace: true
-  pigments: {}
-  "atom-pair": {}

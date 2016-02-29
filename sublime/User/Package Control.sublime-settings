@@ -18,12 +18,14 @@
 		"Git",
 		"GitGutter",
 		"Haml",
+		"Monokai - Spacegray",
 		"Package Control",
 		"RSpec",
 		"Ruby Slim",
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter-haml",
-		"Theme - Afterglow"
+		"Theme - Afterglow",
+		"Theme - Spacegray"
 	]
 }
