@@ -13,7 +13,7 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=1000000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -112,3 +112,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# ## rabbitmq
+export PATH="/usr/local/sbin/rabbitmq:$PATH"
