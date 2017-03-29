@@ -1,13 +1,15 @@
 {
 	"bold_folder_labels": true,
 	"color_inactive_tabs": true,
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
 	"detect_indentation": false,
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
 		"*.swp",
-		"*.swo"
+		"*.swo",
+		"examples.txt"
 	],
 	"folder_exclude_patterns":
 	[
@@ -21,7 +23,9 @@
 		"bower_components",
 		"public/gems",
 		"deps",
-		"_build"
+		"_build",
+		"tmp",
+		"coverage"
 	],
 	"font_size": 15,
 	"highlight_line": true,
@@ -45,9 +49,8 @@
 	"tab_completion": false,
 	"tab_size": 2,
 	"tabs_small": true,
+	"theme": "Afterglow.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
-	"trim_trailing_white_space_on_save": true,
-  "theme": "Afterglow.sublime-theme",
-      "color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme"
+	"trim_trailing_white_space_on_save": true
 }

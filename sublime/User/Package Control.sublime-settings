@@ -10,6 +10,7 @@
 		"Alignment",
 		"All Autocomplete",
 		"AngularJS (CoffeeScript)",
+		"ApplySyntax",
 		"Better CoffeeScript",
 		"CursorRuler",
 		"Elixir",
@@ -18,14 +19,17 @@
 		"Git",
 		"GitGutter",
 		"Haml",
+		"LiveStyle",
 		"Monokai - Spacegray",
 		"Package Control",
 		"RSpec",
+		"Ruby on Rails snippets",
 		"Ruby Slim",
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter-haml",
 		"Theme - Afterglow",
-		"Theme - Spacegray"
+		"Theme - Spacegray",
+		"Vue Syntax Highlight"
 	]
 }
