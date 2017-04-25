@@ -16,6 +16,7 @@
 		".svn",
 		".git",
 		".hg",
+		".csv",
 		"CVS",
 		"source_maps",
 		"tmp/cache",
