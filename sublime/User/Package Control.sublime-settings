@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"3024 Color Scheme",
 		"AdvancedNewFile",
 		"Alignment",
 		"All Autocomplete",
@@ -14,15 +13,12 @@
 		"Better CoffeeScript",
 		"CursorRuler",
 		"Elixir",
-		"Emmet",
 		"ERB Snippets",
-		"Gist",
 		"Git",
 		"GitGutter",
 		"Haml",
-		"LiveStyle",
-		"Monokai - Spacegray",
 		"Package Control",
+		"RailsCasts Colour Scheme",
 		"RSpec",
 		"Ruby on Rails snippets",
 		"Ruby Slim",
@@ -30,7 +26,6 @@
 		"SideBarEnhancements",
 		"SublimeLinter-haml",
 		"Theme - Afterglow",
-		"Theme - Spacegray",
 		"Vue Syntax Highlight"
 	]
 }
