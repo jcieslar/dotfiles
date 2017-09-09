@@ -2,9 +2,9 @@
 
 echo 'symlinks'
 
-# if [ ! -L '~/.atom' ]; then
-#   ln -s ~/dotfiles/atom ~/.atom
-# fi
+if [ ! -L '~/.atom' ]; then
+  ln -s ~/dotfiles/atom ~/.atom
+fi
 
 if [ ! -L '~/.vimrc' ]; then
   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
@@ -32,10 +32,6 @@ fi
 
 if [ ! -L '~/.ackrc' ]; then
   ln -s ~/dotfiles/vim/ackrc ~/.ackrc
-fi
-
-if [ ! -L '~/.tmux.conf' ]; then
-  ln -s ~/dotfiles/tmux.confc ~/.tmux.conf
 fi
 
 # osx

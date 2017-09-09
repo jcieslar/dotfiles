@@ -13,7 +13,7 @@
     br = branch
     co = checkout
     lg = log --pretty=format:'%h - %s : %an : %ad' --graph
-    ll  = log --decorate --stat --graph --pretty=format:'%d %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
+    ll = log --decorate --stat --graph --pretty=format:'%d %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
     l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph
 [branch]
     autosetuprebase = always

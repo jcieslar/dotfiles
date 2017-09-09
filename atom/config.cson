@@ -1,0 +1,19 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+    themes: [
+      "atom-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontSize: 16
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "4ea07363-75cd-40f8-87fe-d7425da79d1f"
+  "file-icons": {}
+  "linter-ui-default":
+    panelHeight: 81
+  "ruby-block":
+    highlightLine: false
+  welcome:
+    showOnStartup: false

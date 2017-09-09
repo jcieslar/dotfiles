@@ -57,4 +57,9 @@ alias db='be rake db:drop db:create db:migrate'
 alias seed='be rake db:seed'
 alias all='rails test -d'
 alias t='rails test -d'
+
+# sublime
 alias s='subl .'
+
+# atom
+alias a='atom .'

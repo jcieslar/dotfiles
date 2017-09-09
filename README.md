@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-My Ubuntu dotfiles
+My dotfiles
 
 ## Instalation:
 Create symlinks
@@ -15,6 +15,4 @@ and
 Launch vim, run :NeoBundleInstall
 ```
 
-## Sublime syncing
-
-https://packagecontrol.io/docs/syncing
+## Update gitconfig file with your data
