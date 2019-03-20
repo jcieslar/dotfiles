@@ -1,12 +1,16 @@
 "*":
   core:
+    closeDeletedFileTabs: true
+    ignoredNames: [
+      ".git"
+      "node_modules"
+    ]
     telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
       "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontSize: 16
     showIndentGuide: true
   "exception-reporting":
     userId: "4ea07363-75cd-40f8-87fe-d7425da79d1f"
@@ -15,5 +19,8 @@
     panelHeight: 81
   "ruby-block":
     highlightLine: false
+  "tree-view": {}
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

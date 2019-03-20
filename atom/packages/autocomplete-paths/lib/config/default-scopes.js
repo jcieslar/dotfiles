@@ -9,12 +9,12 @@ export default [
       'require\\([\'"]', // require('./foo')
       'define\\(\\[?[\'"]' // define(['./foo']) or define('./foo')
     ],
-    extensions: ['js', 'jsx', 'ts', 'tsx', 'coffee'],
+    extensions: ['js', 'jsx', 'ts', 'tsx', 'coffee', 'json'],
     relative: true,
     replaceOnInsert: [
-      ['\\.jsx?$', ''],
-      ['\\.ts$', ''],
-      ['\\.coffee$', '']
+      ['([\\/]?index)?\\.jsx?$', ''],
+      ['([\\/]?index)?\\.ts$', ''],
+      ['([\\/]?index)?\\.coffee$', '']
     ]
   },
   {
@@ -68,7 +68,7 @@ export default [
     relative: true
   },
   {
-    scopes: ['source.sass', 'source.css.scss', 'source.less', 'source.stylus'],
+    scopes: ['source.sass', 'source.css.scss', 'source.css.less', 'source.stylus'],
     prefixes: [
       '@import[\\(|\\s+]?[\'"]' // @import 'foo' or @import('foo')
     ],
@@ -88,7 +88,7 @@ export default [
     relative: true
   },
   {
-    scopes: ['source.css', 'source.sass', 'source.less', 'source.css.scss', 'source.stylus'],
+    scopes: ['source.css', 'source.sass', 'source.css.less', 'source.css.scss', 'source.stylus'],
     prefixes: [
       'url\\([\'"]?'
     ],

@@ -1,4 +1,86 @@
-# Changelog
+## [8.5.2](https://github.com/AtomLinter/linter-eslint/compare/v8.5.1...v8.5.2) (2019-02-03)
+
+
+### Bug Fixes
+
+* behavior when endColumn or endLine is null ([40760c6](https://github.com/AtomLinter/linter-eslint/commit/40760c6)), closes [#1197](https://github.com/AtomLinter/linter-eslint/issues/1197) [#1196](https://github.com/AtomLinter/linter-eslint/issues/1196) [#1195](https://github.com/AtomLinter/linter-eslint/issues/1195) [#1192](https://github.com/AtomLinter/linter-eslint/issues/1192)
+
+## [8.5.1](https://github.com/AtomLinter/linter-eslint/compare/v8.5.0...v8.5.1) (2019-01-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency atom-package-deps to v5 ([9007292](https://github.com/AtomLinter/linter-eslint/commit/9007292))
+* **deps:** update dependency eslint-rule-documentation to v1.0.22 ([57e29a4](https://github.com/AtomLinter/linter-eslint/commit/57e29a4))
+* remove v8.4.2 from the changelog ([878361c](https://github.com/AtomLinter/linter-eslint/commit/878361c))
+
+## v8.5.0
+*  Organize configuration options ([#1042][])
+*  Add source.flow to default scopes ([#1194][])
+*  Upgrade dependencies (various)
+*  Migrate to CircleCi 2.0
+*  Add Renovate for dependency management
+*  Add commitlint
+
+[#1042]: https://github.com/AtomLinter/linter-eslint/pull/1042
+[#1194]: https://github.com/AtomLinter/linter-eslint/pull/1194
+
+## v8.4.1
+
+*   Support [`CLIEngine#getRules`][] and [`rule.meta.docs.url`][] ([#1067][])
+*   Automatically restart the worker process if it dies ([#1073][])
+*   Merge all rules to ignore while typing ([#1084][])
+
+[`rule.meta.docs.url`]: https://github.com/eslint/eslint/pull/9788
+[`CLIEngine#getRules`]: https://github.com/eslint/eslint/pull/9782
+[#1067]: https://github.com/AtomLinter/linter-eslint/pull/1067
+[#1073]: https://github.com/AtomLinter/linter-eslint/pull/1073
+[#1084]: https://github.com/AtomLinter/linter-eslint/pull/1084
+
+## v8.4.0
+
+*   Normalize all config paths ([#1014][])
+*   Check for remote files ([#1017][])
+*   Allow multiple rule directories ([#1016][])
+
+[#1014]: https://github.com/AtomLinter/linter-eslint/pull/1014
+[#1016]: https://github.com/AtomLinter/linter-eslint/pull/1016
+[#1017]: https://github.com/AtomLinter/linter-eslint/pull/1017
+
+## v8.3.2
+
+*   Verify that a rule has a meta property before accessing ([#1026][])
+
+[#1026]: https://github.com/AtomLinter/linter-eslint/pull/1026
+
+## v8.3.1
+
+*   Fix deprecation warning in Atom v1.21.0 ([#1019][])
+*   Don't attempt to process fixable rules on ESLint v3 ([#1024][])
+
+[#1019]: https://github.com/AtomLinter/linter-eslint/pull/1019
+[#1024]: https://github.com/AtomLinter/linter-eslint/pull/1024
+
+## v8.3.0
+
+*   Stop breaking `BABEL_ENV` within Atom ([#961][])
+*   Handle empty `projectPath` in diagnostic command ([#962][])
+*   Set `cwd` to project directory if no `.eslintignore` is found ([#965][])
+*   Update to ESLint v4.6.0 internally ([#938][], [#997][])
+*   Add a right click command to trigger a fix job ([#963][])
+*   Ignore invalid `TextEditor`s for fix jobs ([#978][])
+*   Handle ESLint errors as a lint message ([#1015][])
+*   Add option to silence fixable rules while typing ([#1018][])
+
+[#938]: https://github.com/AtomLinter/linter-eslint/pull/938
+[#961]: https://github.com/AtomLinter/linter-eslint/pull/961
+[#962]: https://github.com/AtomLinter/linter-eslint/pull/962
+[#963]: https://github.com/AtomLinter/linter-eslint/pull/963
+[#965]: https://github.com/AtomLinter/linter-eslint/pull/965
+[#978]: https://github.com/AtomLinter/linter-eslint/pull/978
+[#997]: https://github.com/AtomLinter/linter-eslint/pull/997
+[#1015]: https://github.com/AtomLinter/linter-eslint/pull/1015
+[#1018]: https://github.com/AtomLinter/linter-eslint/pull/1018
 
 ## v8.2.1
 
