@@ -16,3 +16,14 @@ Launch vim, run :NeoBundleInstall
 ```
 
 ## Update gitconfig file with your data
+
+
+## Manual installation:
+
+### Atom
+ 
+* linter-eslint
+* teletype
+* rails-snippets
+* file-icons
+* haml

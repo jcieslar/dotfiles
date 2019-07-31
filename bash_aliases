@@ -22,8 +22,6 @@ alias pull='git pull origin'
 alias fetch='git fetch origin'
 
 alias grep="grep --color"
-alias install='sudo apt-get install'
-alias update='sudo apt-get update && sudo apt-get upgrade'
 
 # bash
 alias ..='cd ..'
@@ -31,10 +29,6 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias c='clear'
-alias tmux='tmux -2'
-
-# foreman
-alias fm="foreman start"
 
 # vim
 alias v="vim"
@@ -55,7 +49,6 @@ alias migrate='be rake db:migrate'
 alias rollback='be rake db:rollback'
 alias db='be rake db:drop db:create db:migrate'
 alias seed='be rake db:seed'
-alias all='rails test -d'
 alias t='rails test -d'
 
 # sublime
@@ -63,3 +56,6 @@ alias s='subl .'
 
 # atom
 alias a='atom .'
+
+# visual studio code
+alias vc='code .'
