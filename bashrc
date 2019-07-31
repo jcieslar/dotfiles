@@ -83,7 +83,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -la'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -106,6 +106,10 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+export CLICOLOR=1
+# export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
