@@ -1,0 +1,20 @@
+{
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.cursorStyle": "line-thin",
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+      100
+  ],
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "search.location": "panel",
+  "window.zoomLevel": 0,
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "workbench.colorTheme": "Atom One Dark"
+}

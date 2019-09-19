@@ -30,4 +30,12 @@ if [ ! -L '~/.bash_profile' ]; then
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
 fi
 
+if [ ! -L '~/Library/ApplicationSupport/Code/User/settings.json' ]; then
+  ln -s ~/dotfiles/Code/User/settings.json ~/Library/ApplicationSupport/Code/User/settings.json
+fi
+
+if [ ! -L '~/Library/ApplicationSupport/Code/User/snippets' ]; then
+  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/ApplicationSupport/Code/User/snippets/
+fi
+
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
