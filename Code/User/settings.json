@@ -6,6 +6,7 @@
   "editor.rulers": [
       100
   ],
+  "editor.multiCursorModifier": "ctrlCmd",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
@@ -16,5 +17,6 @@
   "gitlens.views.lineHistory.location": "gitlens",
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
-  "workbench.colorTheme": "Atom One Dark"
+  "workbench.colorTheme": "Atom One Dark",
+  "explorer.confirmDragAndDrop": false
 }
