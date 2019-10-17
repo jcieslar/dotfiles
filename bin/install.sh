@@ -18,8 +18,9 @@ if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
 fi
 
-if [ ! -L '~/.bashrc' ]; then
-  ln -s ~/dotfiles/bashrc ~/.bashrc
+if [ ! -L '~/.zshrc' ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  ln -s ~/dotfiles/zshrc ~/.zshrc
 fi
 
 if [ ! -L '~/.bash_aliases' ]; then
