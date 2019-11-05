@@ -75,5 +75,6 @@
   ],
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "terminal.integrated.shell.osx": "/bin/zsh"
 }

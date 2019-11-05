@@ -31,7 +31,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -72,7 +72,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv)
+plugins=(git rbenv rails ruby brew bundler cask gatsby heroku npm osx rake npx vscode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
