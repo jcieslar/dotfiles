@@ -18,6 +18,7 @@ if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
 fi
 
+# https://gist.github.com/kevin-smets/8568070
 if [ ! -L '~/.zshrc' ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   ln -s ~/dotfiles/zshrc ~/.zshrc
