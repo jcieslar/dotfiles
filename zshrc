@@ -72,7 +72,10 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv rails ruby brew bundler cask gatsby heroku npm osx rake npx vscode yarn)
+plugins=(
+  git gitfast zsh-autosuggestions rbenv ruby brew bundler gatsby heroku npm osx rake
+  npx vscode yarn zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 
 ###### JC ########
 
-# if [ -f ~/.bash_aliases ]; then
-#     . ~/.bash_aliases
-# fi
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
