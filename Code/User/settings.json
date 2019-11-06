@@ -1,7 +1,6 @@
 {
   "editor.fontSize": 16,
   "editor.tabSize": 2,
-  "editor.cursorStyle": "line-thin",
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
       100
@@ -17,7 +16,7 @@
   "gitlens.views.lineHistory.location": "gitlens",
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "One Dark Pro",
   "explorer.confirmDragAndDrop": false,
   "peacock.favoriteColors": [
     {
@@ -76,8 +75,10 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
-  "terminal.integrated.shell.osx": "/bin/zsh"
+  // "[javascript]": {
+  //   "editor.formatOnSave": true
+  // },
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
+  "terminal.integrated.fontSize": 14
 }

@@ -47,4 +47,19 @@
 		],
 		"description": "console.log()."
 	},
+	"t": {
+		"prefix": "t",
+		"body": "<%= t('$0') %>",
+		"description": "<%= t('$0') %>"
+	},
+	"x": {
+		"prefix": "x",
+		"body": "<%= $0 %>",
+		"description": "<%= $0 %>"
+	},
+	"z": {
+		"prefix": "z",
+		"body": "<% $0 %>",
+		"description": "<% $0 %>"
+	}
 }
