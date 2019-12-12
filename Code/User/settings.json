@@ -80,5 +80,7 @@
   },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
-  "terminal.integrated.fontSize": 14
+  "terminal.integrated.fontSize": 14,
+  "ruby.rubocop.onSave": true,
+  "workbench.iconTheme": "vscode-icons"
 }
