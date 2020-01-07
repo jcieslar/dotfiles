@@ -20,6 +20,7 @@ alias reset='git reset'
 alias push='git push origin'
 alias pull='git pull origin'
 alias fetch='git fetch origin'
+alias ph='git push origin HEAD'
 
 alias grep="grep --color"
 
@@ -59,3 +60,7 @@ alias a='atom .'
 
 # visual studio code
 alias vc='code .'
+
+# youtube-dl
+alias yt='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
+alias yt-audio='youtube-dl --extract-audio --audio-format mp3'
