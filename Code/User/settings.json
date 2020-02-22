@@ -1,5 +1,5 @@
 {
-  "editor.fontSize": 16,
+  "editor.fontSize": 13,
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
@@ -9,8 +9,6 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "search.location": "panel",
-  "window.zoomLevel": 0,
   "gitlens.views.repositories.location": "gitlens",
   "gitlens.views.fileHistory.location": "gitlens",
   "gitlens.views.lineHistory.location": "gitlens",
@@ -76,11 +74,16 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
   "terminal.integrated.fontSize": 14,
   "ruby.rubocop.onSave": true,
-  "workbench.iconTheme": "vscode-icons"
+  "window.zoomLevel": 1,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.format": "rubocop",
+  "ruby.useBundler": true,
+  "workbench.panel.defaultLocation": "right"
 }
