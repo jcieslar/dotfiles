@@ -44,16 +44,13 @@ alias rc='be rails c'
 alias rs='be rails s -p 3000 -b lvh.me'
 alias rspec='clear; be rspec --color'
 alias log='tail -f log/development.log'
-alias rr='be rake routes'
-alias rg='be rake routes | grep '
-alias migrate='be rake db:migrate'
-alias rollback='be rake db:rollback'
-alias db='be rake db:drop db:create db:migrate'
-alias seed='be rake db:seed'
+alias rr='be rails routes'
+alias rg='be rails routes | grep '
+alias migrate='be rails db:migrate'
+alias rollback='be rails db:rollback'
+alias setup='be rails db:reset'
+alias seed='be rails db:seed'
 alias t='rails test -d'
-
-# sublime
-alias s='subl .'
 
 # atom
 alias a='atom .'

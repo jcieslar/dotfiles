@@ -73,10 +73,10 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // "[javascript]": {
+  //   "editor.formatOnSave": true,
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
   "terminal.integrated.fontSize": 14,
@@ -85,5 +85,14 @@
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
   "ruby.useBundler": true,
-  "workbench.panel.defaultLocation": "right"
+  "workbench.panel.defaultLocation": "right",
+  "ruby.rubocop.useBundler": true,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "yaml.schemas": {
+    "file:///Users/qba/.vscode/extensions/docsmsft.docs-yaml-0.2.4/schemas/toc.schema.json": "/toc\\.yml/i"
+  },
+  "prettier.printWidth": 120,
+  "prettier.packageManager": "yarn"
 }
