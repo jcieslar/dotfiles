@@ -59,5 +59,6 @@ alias a='atom .'
 alias vc='code .'
 
 # youtube-dl
+# https://www.youtube.com/watch\?v\=f_JO_DhEzMk
 alias yt='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
 alias yt-audio='youtube-dl --extract-audio --audio-format mp3'

@@ -70,13 +70,22 @@
       "value": "#42b883"
     }
   ],
+
+  "files.associations": {
+    "*.css": "postcss",
+    "*.template": "NGINX",
+    "*.html.erb": "erb",
+    "*.erb": "erb"
+  },
   "[javascriptreact]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // "[javascript]": {
-  //   "editor.formatOnSave": true,
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
   "terminal.integrated.fontSize": 14,
@@ -91,8 +100,10 @@
     "erb": "html"
   },
   "yaml.schemas": {
-    "file:///Users/qba/.vscode/extensions/docsmsft.docs-yaml-0.2.4/schemas/toc.schema.json": "/toc\\.yml/i"
+    "file:///toc.schema.json": "/toc\\.yml/i"
   },
   "prettier.printWidth": 120,
-  "prettier.packageManager": "yarn"
+  "prettier.packageManager": "yarn",
+  "prettier.requireConfig": true,
+  "workbench.iconTheme": "material-icon-theme"
 }
