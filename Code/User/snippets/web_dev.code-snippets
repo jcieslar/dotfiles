@@ -26,6 +26,16 @@
 		],
 		"description": "binding.pry."
 	},
+	"binding.remote_pry": {
+		"prefix": [
+			"remote_pry",
+			"remote_binding"
+		],
+		"body": [
+			"binding.remote_pry"
+		],
+		"description": "binding.remote_pry."
+	},
 	"script tag ": {
 		"prefix": [
 			"script"
@@ -46,20 +56,5 @@
 			"console.log($0)"
 		],
 		"description": "console.log()."
-	},
-	"t": {
-		"prefix": "t",
-		"body": "<%= t('$0') %>",
-		"description": "<%= t('$0') %>"
-	},
-	"x": {
-		"prefix": "x",
-		"body": "<%= $0 %>",
-		"description": "<%= $0 %>"
-	},
-	"z": {
-		"prefix": "z",
-		"body": "<% $0 %>",
-		"description": "<% $0 %>"
 	}
 }

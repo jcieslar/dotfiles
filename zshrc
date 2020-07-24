@@ -75,7 +75,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git gitfast zsh-autosuggestions rbenv ruby brew heroku osx
+  gitfast zsh-autosuggestions rbenv ruby brew heroku osx
   vscode zsh-syntax-highlighting
 )
 # npm rake yarn npx bundler gatsby
