@@ -16,6 +16,7 @@
   "gitlens.views.search.location": "gitlens",
   "workbench.colorTheme": "Atom One Dark",
   "explorer.confirmDragAndDrop": false,
+  "scss.validate": false,
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",
@@ -105,5 +106,18 @@
   "prettier.printWidth": 120,
   "prettier.packageManager": "yarn",
   "prettier.requireConfig": true,
+  "files.exclude": {
+    "**/.git": true,         // this is a default value
+    "**/.DS_Store": true,    // this is a default value
+
+    "**/node_modules": true, // this excludes all folders
+                            // named "node_modules" from
+                            // the explore tree
+
+    // alternative version
+    "node_modules": true    // this excludes the folder
+                            // only from the root of
+                            // your workspace
+},
   "workbench.iconTheme": "material-icon-theme"
 }

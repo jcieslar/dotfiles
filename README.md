@@ -21,9 +21,13 @@ Launch vim, run :NeoBundleInstall
 ## Manual installation:
 
 ### Atom
- 
+
 * linter-eslint
 * teletype
 * rails-snippets
 * file-icons
 * haml
+
+
+### dumo vc extensions
+code --list-extensions
