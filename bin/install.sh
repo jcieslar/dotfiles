@@ -6,16 +6,16 @@ if [ ! -L '~/.vimrc' ]; then
   ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 fi
 
-if [ ! -L '~/.vim' ]; then
-  ln -s ~/dotfiles/vim ~/.vim
-fi
-
 if [ ! -L '~/.ackrc' ]; then
   ln -s ~/dotfiles/vim/ackrc ~/.ackrc
 fi
 
 if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
+fi
+
+if [ ! -L '~/.local/share/nvim/site/autoload/plug.vim' ]; then
+  ln -s ~/dotfiles/plug.vim ~/.local/share/nvim/site/autoload
 fi
 
 # https://gist.github.com/kevin-smets/8568070
@@ -42,5 +42,3 @@ fi
 if [ ! -L '~/Library/ApplicationSupport/Code/User/snippets' ]; then
   ln -s ~/dotfiles/Code/User/snippets/ ~/Library/ApplicationSupport/Code/User/snippets/
 fi
-
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
