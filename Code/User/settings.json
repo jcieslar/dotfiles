@@ -87,11 +87,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[erb]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
   "terminal.integrated.fontSize": 14,
   "ruby.rubocop.onSave": true,
-  "window.zoomLevel": 1,
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
   "ruby.useBundler": true,
@@ -104,7 +107,6 @@
     "file:///toc.schema.json": "/toc\\.yml/i"
   },
   "prettier.printWidth": 120,
-  "prettier.packageManager": "yarn",
   "prettier.requireConfig": true,
   "files.exclude": {
     "**/.git": true,         // this is a default value
@@ -119,5 +121,6 @@
                             // only from the root of
                             // your workspace
 },
-  "workbench.iconTheme": "material-icon-theme"
+"window.zoomLevel": 1,
+"security.workspace.trust.untrustedFiles": "open"
 }

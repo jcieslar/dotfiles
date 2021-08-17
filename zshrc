@@ -76,7 +76,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast zsh-autosuggestions rbenv ruby brew heroku osx
+  gitfast zsh-autosuggestions asdf ruby brew heroku osx
   vscode zsh-syntax-highlighting
 )
 # npm rake yarn npx bundler gatsby
@@ -120,3 +120,5 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/opt/node@12/bin:$PATH"
+
+. /usr/local/opt/asdf/libexec/asdf.sh
