@@ -30,3 +30,20 @@ fi
 if [ ! -L '~/Library/ApplicationSupport/Code/User/snippets' ]; then
   ln -s ~/dotfiles/Code/User/snippets/ ~/Library/ApplicationSupport/Code/User/snippets/
 fi
+
+if [ ! -L '~/.config/nvim/init.vim' ]; then
+  mkdir ~/.config/nvim
+  ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+if [ ! -L '~/.config/nvim/vim-plug/plugins.vim' ]; then
+  mkdir ~/.config/nvim//vim-plug
+  ln -s ~/dotfiles/nvim/vim-plug/plugins.vim ~/.config/nvim/vim-plug/plugins.vim
+fi
+
+
+if [ ! -L '~/.vimrc' ]; then
+  ln -s ~/dotfiles/vimrc ~/.vimrc
+fi

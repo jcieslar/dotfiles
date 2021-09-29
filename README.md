@@ -10,16 +10,12 @@ cd bin
 ./install.sh
 ```
 
-and
-```
-Launch vim, run :NeoBundleInstall
-```
+`brew install neovim`
 
-## Update gitconfig file with your data
+https://www.chrisatmachine.com/Neovim/01-vim-plug/
 
 
-## Manual installation:
+Update gitconfig file with your data
 
 
-### dumo vc extensions
 code --list-extensions
