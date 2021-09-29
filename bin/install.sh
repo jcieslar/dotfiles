@@ -44,6 +44,3 @@ if [ ! -L '~/.config/nvim/vim-plug/plugins.vim' ]; then
 fi
 
 
-if [ ! -L '~/.vimrc' ]; then
-  ln -s ~/dotfiles/vimrc ~/.vimrc
-fi
