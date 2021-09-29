@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 
-echo 'symlinks'
-
-if [ ! -L '~/.vimrc' ]; then
-  ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-fi
-
-if [ ! -L '~/.ackrc' ]; then
-  ln -s ~/dotfiles/vim/ackrc ~/.ackrc
-fi
+echo 'add symlinks'
 
 if [ ! -L '~/.gitconfig' ]; then
   ln -s ~/dotfiles/gitconfig ~/.gitconfig
-fi
-
-if [ ! -L '~/.local/share/nvim/site/autoload/plug.vim' ]; then
-  ln -s ~/dotfiles/plug.vim ~/.local/share/nvim/site/autoload
 fi
 
 # https://gist.github.com/kevin-smets/8568070
