@@ -122,4 +122,4 @@ fi
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #export PATH="/usr/local/opt/node@12/bin:$PATH"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
