@@ -23,12 +23,12 @@ if [ ! -L '~/.bash_profile' ]; then
   ln -s ~/dotfiles/bash_profile ~/.bash_profile
 fi
 
-if [ ! -L '~/Library/ApplicationSupport/Code/User/settings.json' ]; then
-  ln -s ~/dotfiles/Code/User/settings.json ~/Library/ApplicationSupport/Code/User/settings.json
+if [ ! -L '~/Library/Application\ Support/Code/User/settings.json' ]; then
+  ln -s ~/dotfiles/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
 fi
 
-if [ ! -L '~/Library/ApplicationSupport/Code/User/snippets' ]; then
-  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/ApplicationSupport/Code/User/snippets/
+if [ ! -L '~/Library/Application Support/Code/User/snippets' ]; then
+  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/Application\ Support/Code/User/snippets/
 fi
 
 if [ ! -L '~/.config/nvim/init.vim' ]; then
@@ -39,8 +39,6 @@ if [ ! -L '~/.config/nvim/init.vim' ]; then
 fi
 
 if [ ! -L '~/.config/nvim/vim-plug/plugins.vim' ]; then
-  mkdir ~/.config/nvim//vim-plug
+  mkdir ~/.config/nvim/vim-plug
   ln -s ~/dotfiles/nvim/vim-plug/plugins.vim ~/.config/nvim/vim-plug/plugins.vim
 fi
-
-
