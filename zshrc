@@ -81,12 +81,11 @@ plugins=(
   gitfast
   zsh-autosuggestions
   asdf
-  ruby
   heroku
   osx
-  vscode
   zsh-syntax-highlighting
   forklift
+  history
 )
 # npm rake yarn npx bundler gatsby
 
