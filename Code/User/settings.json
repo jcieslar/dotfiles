@@ -1,5 +1,4 @@
 {
-  "editor.fontSize": 14,
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
@@ -14,7 +13,6 @@
   "gitlens.views.lineHistory.location": "gitlens",
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
-  "workbench.colorTheme": "Atom One Dark",
   "explorer.confirmDragAndDrop": false,
   "scss.validate": false,
   "peacock.favoriteColors": [
@@ -122,5 +120,6 @@
                             // your workspace
 },
 "window.zoomLevel": 1,
-"security.workspace.trust.untrustedFiles": "open"
+"security.workspace.trust.untrustedFiles": "open",
+"workbench.colorTheme": "Atom One Dark"
 }

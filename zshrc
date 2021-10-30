@@ -12,10 +12,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
 
-# ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
+DEFAULT_USER=`whoami`
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 #POWERLEVEL9K_MODE="nerdfont-complete"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 # risto
 
 # Set list of themes to pick from when loading at random
@@ -77,8 +78,15 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast zsh-autosuggestions asdf ruby brew heroku osx
-  vscode zsh-syntax-highlighting
+  gitfast
+  zsh-autosuggestions
+  asdf
+  ruby
+  heroku
+  osx
+  vscode
+  zsh-syntax-highlighting
+  forklift
 )
 # npm rake yarn npx bundler gatsby
 
