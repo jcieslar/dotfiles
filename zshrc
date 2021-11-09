@@ -136,7 +136,11 @@ fi
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #export PATH="/usr/local/opt/node@12/bin:$PATH"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# export PATH=$PATH:$HOME/Library/Python/2.7/bin
+# export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"

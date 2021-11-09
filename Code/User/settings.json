@@ -121,5 +121,7 @@
 },
 "window.zoomLevel": 1,
 "security.workspace.trust.untrustedFiles": "open",
-"workbench.colorTheme": "Atom One Dark"
+"workbench.colorTheme": "Atom One Dark",
+"editor.fontSize": 13,
+"editor.inlineSuggest.enabled": true
 }

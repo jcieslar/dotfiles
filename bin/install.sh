@@ -19,10 +19,6 @@ if [ ! -L '~/.bash_aliases' ]; then
   ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 fi
 
-if [ ! -L '~/.bash_profile' ]; then
-  ln -s ~/dotfiles/bash_profile ~/.bash_profile
-fi
-
 if [ ! -L '~/Library/Application\ Support/Code/User/settings.json' ]; then
   ln -s ~/dotfiles/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
 fi
