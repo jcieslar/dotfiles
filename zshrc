@@ -89,7 +89,7 @@ plugins=(
   zsh-autosuggestions
   asdf
   heroku
-  osx
+  macos
   zsh-syntax-highlighting
   forklift
   history
@@ -139,6 +139,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export TERM="xterm-256color"
 
 # export PATH=$PATH:$HOME/Library/Python/2.7/bin
 # export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'

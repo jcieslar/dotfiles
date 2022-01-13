@@ -2,7 +2,7 @@
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
-      120
+      110
   ],
   "editor.multiCursorModifier": "ctrlCmd",
   "files.trimFinalNewlines": true,
@@ -104,7 +104,7 @@
   "yaml.schemas": {
     "file:///toc.schema.json": "/toc\\.yml/i"
   },
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 110,
   "prettier.requireConfig": true,
   "files.exclude": {
     "**/.git": true,         // this is a default value
@@ -123,5 +123,9 @@
 "security.workspace.trust.untrustedFiles": "open",
 "workbench.colorTheme": "Atom One Dark",
 "editor.fontSize": 13,
-"editor.inlineSuggest.enabled": true
+"editor.inlineSuggest.enabled": true,
+"editor.quickSuggestions": {
+  "strings": true
+},
+"search.showLineNumbers": true
 }

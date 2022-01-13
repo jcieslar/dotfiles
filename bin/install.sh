@@ -24,7 +24,7 @@ if [ ! -L '~/Library/Application\ Support/Code/User/settings.json' ]; then
 fi
 
 if [ ! -L '~/Library/Application Support/Code/User/snippets' ]; then
-  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/Application\ Support/Code/User/snippets/
+  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/Application\ Support/Code/User/
 fi
 
 if [ ! -L '~/.config/nvim/init.vim' ]; then

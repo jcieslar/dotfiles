@@ -7,8 +7,12 @@ let mapleader = "\<Space>"
 nmap <C-P> :FZF<CR>
 
 " UI
-set background=dark
-colorscheme gruvbox
+" set background=dark
+" colorscheme gruvbox
+
+syntax enable
+set termguicolors
+colorscheme rigel
 
 set nowrap
 
@@ -28,4 +32,3 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
-

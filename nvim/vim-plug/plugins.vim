@@ -23,6 +23,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
 
+  """" Presentation plugins
+  Plug 'Rigellute/rigel'
   " Themes color scheme
   Plug 'morhetz/gruvbox'
 call plug#end()
