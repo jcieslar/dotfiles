@@ -1,0 +1,122 @@
+priority -50
+# Config
+
+global !p
+def fileNameTitleized(snip):
+	name = snip.fn.split(".")
+	return re.sub(r'[_\-]', '', "".join(name[:-1]).title())
+def specFileNameTitleized(snip):
+	name = snip.fn.split(".")
+	name = "".join(name[:-1]).title()
+	name = re.sub(r'[_\-]', '', name)
+	return re.sub(r'Spec$', '', name)
+endglobal
+
+# Snippets
+
+snippet fsl "#frozen_string_literal"
+# frozen_string_literal: true
+
+endsnippet
+
+snippet mod "module ... end"
+module ${1:`!p snip.rv = fileNameTitleized(snip)`}
+	${0:${VISUAL:# body}}
+end
+endsnippet
+
+snippet cla "class ... end"
+# frozen_string_literal: true
+
+class ${1:`!p snip.rv = fileNameTitleized(snip)`}
+	${0:${VISUAL:# body}}
+end
+endsnippet
+
+snippet cn "Class name"
+`!p snip.rv = specFileNameTitleized(snip)`
+endsnippet
+
+snippet rdes "rspec: describe class"
+require "rails_helper"
+
+RSpec.describe `!p snip.rv = specFileNameTitleized(snip)` do
+  $0
+end
+endsnippet
+
+snippet des "rspec: describe block"
+describe "$1" do
+  ${0:${VISUAL:# assertions...}}
+end
+endsnippet
+
+snippet con "rspec: context block"
+context "$1" do
+  ${0:${VISUAL:# assertions...}}
+end
+endsnippet
+
+snippet it "rspec: it block"
+it "$1" do
+  ${0:${VISUAL:# assertions...}}
+end
+endsnippet
+
+snippet subject "RSpec: subject(...) { ... }"
+subject(:$1) { $0 }
+endsnippet
+
+snippet dc "RSpec: described_class"
+described_class
+endsnippet
+
+snippet let "RSpec: let"
+let(:$1) { $0 }
+endsnippet
+
+snippet exp "RSpec: expect(...).to/not_to"
+expect($1).${2:not_}to $0
+endsnippet
+
+snippet rubocopdisable "rubocop disable"
+# rubocop:disable $1
+endsnippet
+
+snippet rubocopenable "rubocop enable"
+# rubocop:enable $1
+endsnippet
+
+snippet ar "attr_reader"
+attr_reader :
+endsnippet
+
+snippet pry "binding.pry"
+binding.pry
+endsnippet
+
+snippet rpry "binding.pry_remote"
+binding.pry_remote
+endsnippet
+
+snippet mv "memoized var"
+@$1 ||= $1
+$0
+endsnippet
+
+snippet @ "ivar"
+@$1 = $1
+$0
+endsnippet
+
+snippet sql "<<~SQL"
+<<~SQL
+	$0
+SQL
+endsnippet
+
+snippet de "method"
+def $0
+end
+endsnippet
+

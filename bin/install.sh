@@ -27,14 +27,29 @@ if [ ! -L '~/Library/Application Support/Code/User/snippets' ]; then
   ln -s ~/dotfiles/Code/User/snippets/ ~/Library/Application\ Support/Code/User/
 fi
 
-if [ ! -L '~/.config/nvim/init.vim' ]; then
-  mkdir ~/.config/nvim
-  ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+# if [ ! -L '~/.config/nvim/init.vim' ]; then
+#   mkdir ~/.config/nvim
+#   ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+#   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# fi
 
-if [ ! -L '~/.config/nvim/vim-plug/plugins.vim' ]; then
-  mkdir ~/.config/nvim/vim-plug
-  ln -s ~/dotfiles/nvim/vim-plug/plugins.vim ~/.config/nvim/vim-plug/plugins.vim
-fi
+# if [ ! -L '~/.config/nvim/vim-plug/plugins.vim' ]; then
+#   mkdir ~/.config/nvim/vim-plug
+#   ln -s ~/dotfiles/nvim/vim-plug/plugins.vim ~/.config/nvim/vim-plug/plugins.vim
+# fi
+
+# neovim
+# https://www.chrisatmachine.com/Neovim/01-vim-plug/
+# https://github.com/Szeliga/dotfiles
+
+brew install fzf ripgrep bat neovim
+
+mkdir ~/.config/nvim
+
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+ln -sf ~/dotfiles/vim/*.vim ~/.vim/
+ln -sf ~/dotfiles/UltiSnips ~/.vim/UltiSnips
+
+echo "source ~/.vim/entrypoint.vim" >> ~/.config/nvim/init.vim

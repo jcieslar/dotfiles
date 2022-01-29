@@ -1,0 +1,69 @@
+# Config
+
+global !p
+def fileNameTitleized(snip):
+	name = snip.fn.split(".")
+	return re.sub(r'[_\-]', '', ".".join(name[:-1]).title())
+endglobal
+
+# Snippets
+
+snippet rc "Class Component"
+import React, { Component, PropTypes } from "react";
+
+export default class ${1:`!p snip.rv = fileNameTitleized(snip)`} extends Component {
+	render() {
+		return (
+			$0
+		);
+	}
+}
+
+$1.propTypes = {$2};
+endsnippet
+
+snippet rcc "Class Component with Constructor"
+import React, { Component, PropTypes } from "react";
+
+export default class ${1:`!p snip.rv = fileNameTitleized(snip)`} extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {$2};
+	}
+
+	render() {
+		return (
+			$0
+		);
+	}
+}
+
+$1.propTypes = {$3};
+endsnippet
+
+snippet rcs "Stateless Component"
+import React, { PropTypes } from "react";
+
+const ${1:`!p snip.rv = fileNameTitleized(snip)`} = ($2) => {
+	return (
+		$0
+	);
+}
+
+$1.propTypes = {
+};
+
+export default $1;
+endsnippet
+
+snippet des "Describe"
+describe("$1", () => {
+	$0
+});
+endsnippet
+
+snippet it "It"
+it("$1", () => {
+	$0
+});
+endsnippet

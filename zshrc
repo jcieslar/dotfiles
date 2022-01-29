@@ -143,5 +143,7 @@ export TERM="xterm-256color"
 
 # export PATH=$PATH:$HOME/Library/Python/2.7/bin
 # export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --smart-case"
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
