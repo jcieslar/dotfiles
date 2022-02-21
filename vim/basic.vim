@@ -80,3 +80,6 @@ function! StripTrailingWhitespace()
   call setpos('.', save_cursor)
 endfunction
 autocmd BufWritePre *.* call StripTrailingWhitespace()
+
+""" mouse interactive selection
+set mouse=a

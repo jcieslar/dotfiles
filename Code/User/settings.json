@@ -1,9 +1,7 @@
 {
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-      110
-  ],
+  "editor.rulers": [110],
   "editor.multiCursorModifier": "ctrlCmd",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -107,25 +105,24 @@
   "prettier.printWidth": 110,
   "prettier.requireConfig": true,
   "files.exclude": {
-    "**/.git": true,         // this is a default value
-    "**/.DS_Store": true,    // this is a default value
+    "**/.git": true, // this is a default value
+    "**/.DS_Store": true, // this is a default value
 
     "**/node_modules": true, // this excludes all folders
-                            // named "node_modules" from
-                            // the explore tree
+    // named "node_modules" from
+    // the explore tree
 
     // alternative version
-    "node_modules": true    // this excludes the folder
-                            // only from the root of
-                            // your workspace
-},
-"window.zoomLevel": 1,
-"security.workspace.trust.untrustedFiles": "open",
-"workbench.colorTheme": "Atom One Dark",
-"editor.fontSize": 13,
-"editor.inlineSuggest.enabled": true,
-"editor.quickSuggestions": {
-  "strings": true
-},
-"search.showLineNumbers": true
+    "node_modules": true // this excludes the folder
+    // only from the root of
+    // your workspace
+  },
+  "window.zoomLevel": 1,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Atom One Dark",
+  "editor.inlineSuggest.enabled": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "search.showLineNumbers": true
 }

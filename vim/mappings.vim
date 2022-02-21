@@ -1,5 +1,6 @@
 """" Map leader to ,
-let mapleader = ','
+" let mapleader = ','
+let mapleader = "\<Space>"
 
 """" Writing and quitting
 noremap <silent> <leader>w :w<CR>
@@ -27,7 +28,7 @@ noremap <silent> ; :Buffers<CR>
 noremap <silent> <C-p> :Files<CR>
 
 """" Clear the search buffer when hitting space
-nnoremap <silent> <space> :nohlsearch<cr>
+" nnoremap <silent> <space> :nohlsearch<cr>
 
 """" Copy current file path to system pasteboard
 map <silent> <leader>C :let @+ = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
@@ -39,7 +40,7 @@ map Y y$
 noremap <silent> <leader>f :normal zE<CR>:g/it "/normal jzfii<CR>
 
 """" Git mappings
-map <silent> <leader>b :Gblame<CR>
+map <silent> <leader>b :Git blame<CR>
 map <silent> <leader>s :GFiles?<CR>
 
 """" NERDTree mappings
