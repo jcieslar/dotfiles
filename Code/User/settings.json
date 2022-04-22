@@ -87,6 +87,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[ruby]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
   "terminal.integrated.fontSize": 14,
@@ -117,12 +121,13 @@
     // only from the root of
     // your workspace
   },
-  "window.zoomLevel": 1,
   "security.workspace.trust.untrustedFiles": "open",
   "workbench.colorTheme": "Atom One Dark",
   "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestions": {
     "strings": true
   },
-  "search.showLineNumbers": true
+  "search.showLineNumbers": true,
+  "redhat.telemetry.enabled": false,
+  "window.zoomLevel": 1
 }
