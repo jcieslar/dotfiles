@@ -145,7 +145,10 @@ export TERM="xterm-256color"
 # export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --smart-case"
 
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@12/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@12/include"
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"

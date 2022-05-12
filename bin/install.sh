@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-echo 'add symlinks'
+# run it manually
 
-if [ ! -L '~/.gitconfig' ]; then
-  ln -s ~/dotfiles/gitconfig ~/.gitconfig
-fi
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/gitconfig_work ~/.gitconfig
 
 # https://gist.github.com/kevin-smets/8568070
 if [ ! -L '~/.zshrc' ]; then
@@ -19,13 +18,6 @@ if [ ! -L '~/.bash_aliases' ]; then
   ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 fi
 
-if [ ! -L '~/Library/Application\ Support/Code/User/settings.json' ]; then
-  ln -s ~/dotfiles/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
-fi
-
-if [ ! -L '~/Library/Application Support/Code/User/snippets' ]; then
-  ln -s ~/dotfiles/Code/User/snippets/ ~/Library/Application\ Support/Code/User/
-fi
 
 # if [ ! -L '~/.config/nvim/init.vim' ]; then
 #   mkdir ~/.config/nvim

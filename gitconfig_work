@@ -1,0 +1,22 @@
+[color]
+	ui = true
+[user]
+	name = Jakub Cieślar
+	email = jakub.cieslar@pennylane.com
+[core]
+  editor = code
+  excludesfile = ~/dotfiles/gitignore_global
+  whitespace = space-before-tab,trailing-space,cr-at-eol
+  pager = less --no-init --quit-if-one-screen --chop-long-lines
+[alias]
+  st = status
+  ci = commit -m
+  br = branch
+  co = checkout
+  lg = log --pretty=format:'%h - %s : %an : %ad' --graph
+  ll = log --decorate --stat --graph --pretty=format:'%d %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
+  l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph
+[branch]
+  autosetuprebase = always
+[apply]
+  whitespace = fix

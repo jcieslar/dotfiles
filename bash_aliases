@@ -6,7 +6,6 @@ alias lg='git l'
 alias ci='git ci'
 alias co='git co'
 alias br='git br'
-alias merge='git merge'
 alias stash='git stash'
 alias pop='git stash pop'
 alias clone='git clone'
@@ -21,6 +20,11 @@ alias push='git push origin'
 alias pull='git pull origin'
 alias fetch='git fetch origin'
 alias ph='git push origin HEAD'
+alias merge='git merge --no-ff --no-edit'
+alias mm='git fetch origin; merge origin/master'
+alias rb='git fetch origin; rebase origin/master'
+alias pr='git pull --rebase origin master'
+alias pm='git pull origin master'
 
 alias grep="grep --color"
 
@@ -29,6 +33,7 @@ alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
 alias c='clear'
 
 # vim
@@ -41,7 +46,8 @@ alias b='bundle'
 
 # rails
 alias rc='be rails c'
-alias rs='be rails s -p 3000 -b lvh.me'
+# alias rs='be rails s -p 3000 -b lvh.me'
+alias rs='bin/rails s'
 alias rspec='clear; be rspec --color'
 alias log='tail -f log/development.log'
 alias rr='be rails routes'
