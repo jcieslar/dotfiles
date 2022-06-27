@@ -20,7 +20,7 @@ alias push='git push origin'
 alias pull='git pull origin'
 alias fetch='git fetch origin'
 alias ph='git push origin HEAD'
-alias merge='git merge --no-ff --no-edit'
+alias merge='git merge --no-edit'
 alias mm='git fetch origin; merge origin/master'
 alias rb='git fetch origin; rebase origin/master'
 alias pr='git pull --rebase origin master'
@@ -37,7 +37,7 @@ alias ..5='cd ../../../../..'
 alias c='clear'
 
 # vim
-alias v="nvim"
+alias v="lvim"
 
 # bundle
 alias be='bundle exec'
@@ -57,6 +57,7 @@ alias rollback='be rails db:rollback'
 alias setup='be rails db:reset'
 alias seed='be rails db:seed'
 alias t='rails test -d'
+alias s='bundle exec rake parallel:spec'
 
 # atom
 alias a='atom .'
