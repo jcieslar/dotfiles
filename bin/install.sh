@@ -13,6 +13,8 @@ if [ ! -L '~/.zshrc' ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   ln -s ~/dotfiles/zshrc ~/.zshrc
+
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
 if [ ! -L '~/.bash_aliases' ]; then
@@ -21,8 +23,9 @@ fi
 
 
 brew install fzf ripgrep bat neovim
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 mkdir -p ~/.config/lvim
 
 ln -sf ~/dotfiles/lvim.lua ~/.config/lvim/config.lua
-
