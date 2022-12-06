@@ -4,7 +4,7 @@
 	name = Jakub Cieślar
 	email = jakub.cieslar@pennylane.com
 [core]
-  editor = code
+  editor = nvim
   excludesfile = ~/dotfiles/gitignore_global
   whitespace = space-before-tab,trailing-space,cr-at-eol
   pager = less --no-init --quit-if-one-screen --chop-long-lines

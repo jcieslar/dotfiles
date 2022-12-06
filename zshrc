@@ -153,3 +153,5 @@ export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 export PATH=~/.local/bin:$PATH
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
