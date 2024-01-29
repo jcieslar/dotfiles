@@ -154,4 +154,10 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 export PATH=~/.local/bin:$PATH
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+export LDFLAGS="-L$(brew --prefix libyaml)/lib"
+export CPPFLAGS="-I$(brew --prefix libyaml)/include"
+export RUBY_YJIT_ENABLE=1
+export RUBY_CONFIGURE_OPTS=--enable-yjit
