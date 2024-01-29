@@ -3,6 +3,7 @@
 [user]
 	name = Jakub Cieślar
 	email = jakub.cieslar@pennylane.com
+	signingkey = /Users/jcieslar/.ssh/id_rsa.pub
 [core]
   editor = nvim
   excludesfile = ~/dotfiles/gitignore_global
@@ -20,3 +21,9 @@
   autosetuprebase = always
 [apply]
   whitespace = fix
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true

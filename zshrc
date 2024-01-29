@@ -145,14 +145,21 @@ export TERM="xterm-256color"
 # export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --smart-case"
 
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@12/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@12/include"
+# export LDFLAGS="-L/opt/homebrew/opt/postgresql@12/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/postgresql@12/include"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
 export PATH=~/.local/bin:$PATH
+export PATH="/opt/homebrew/bin/pg_config:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@14/bin/psql:$PATH"
+
+ssh-add --apple-load-keychain > /dev/null 2>&1
 
 if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -161,3 +168,9 @@ export LDFLAGS="-L$(brew --prefix libyaml)/lib"
 export CPPFLAGS="-I$(brew --prefix libyaml)/include"
 export RUBY_YJIT_ENABLE=1
 export RUBY_CONFIGURE_OPTS=--enable-yjit
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
