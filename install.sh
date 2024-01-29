@@ -26,6 +26,7 @@ brew install fzf ripgrep bat neovim
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
-mkdir -p ~/.config/lvim
+# vim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 ln -sf ~/dotfiles/lvim.lua ~/.config/lvim/config.lua

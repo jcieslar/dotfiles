@@ -37,7 +37,7 @@ alias ..5='cd ../../../../..'
 alias c='clear'
 
 # vim
-alias v="lvim"
+alias v="nvim"
 
 # bundle
 alias be='bundle exec'
