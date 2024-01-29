@@ -1,13 +1,10 @@
-dotfiles
-========
+# Dotfiles - my local setup
 
-My dotfiles
-
-
-https://www.chrisatmachine.com/Neovim/01-vim-plug/
+* Update gitconfig file with your data
 
 
-Update gitconfig file with your data
+### List of VS code extensions
 
-
+```bash
 code --list-extensions
+```
