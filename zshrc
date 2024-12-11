@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -132,6 +132,10 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+if [ -f ~/.pl_aliases ]; then
+  . ~/.pl_aliases
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #export PATH="/usr/local/opt/node@12/bin:$PATH"
@@ -145,19 +149,15 @@ export TERM="xterm-256color"
 # export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --smart-case"
 
-# export LDFLAGS="-L/opt/homebrew/opt/postgresql@12/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/postgresql@12/include"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@14/include"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
-PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
+# PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
 export PATH=~/.local/bin:$PATH
 export PATH="/opt/homebrew/bin/pg_config:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@14/bin/psql:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@14/bin/psql:$PATH"
 
 ssh-add --apple-load-keychain > /dev/null 2>&1
 
@@ -174,3 +174,35 @@ export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+export PGGSSENCMODE="disable"
+export DISABLE_SPRING=1
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin/psql:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+export PG_CONFIG="/opt/homebrew/opt/postgresql@16/bin/pg_config"
+
+
+co() {
+  if [ -z "$1" ]; then
+    # If no argument is provided, use fzf to select a branch
+    git co $(git branch | fzf)
+  else
+    # If an argument is provided, use it to checkout the branch
+    git co "$1"
+  fi
+}
+
+m() {
+  if [ -z "$1" ]; then
+    git merge $(git branch | fzf)
+  else
+    git merge "$1"
+  fi
+}
