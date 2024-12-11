@@ -151,7 +151,6 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --smart-case"
 
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 # PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
@@ -206,3 +205,15 @@ m() {
     git merge "$1"
   fi
 }
+
+export RUBY_CONFIGURE_OPTS=--enable-yjit
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
