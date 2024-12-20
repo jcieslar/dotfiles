@@ -218,7 +218,7 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[[ -d $PYENV_ROOT/bin ]] && eval "$(pyenv init -)"
 
 
 export NVM_DIR="$HOME/.nvm"
