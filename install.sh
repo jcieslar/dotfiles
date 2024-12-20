@@ -17,15 +17,19 @@ if [ ! -L '~/.zshrc' ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-if [ ! -L '~/.bash_aliases' ]; then
-  ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
-fi
-
+# if [ ! -L '~/.bash_aliases' ]; then
+#   ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+# fi
 
 brew install fzf ripgrep bat neovim
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install fzf
+# neovim
+brew install luajit
+brew install ripgrep
+brew install lazygit
+brew install luarocks
 
 # vim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim

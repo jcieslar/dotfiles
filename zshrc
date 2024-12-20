@@ -26,6 +26,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 # risto
 
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -53,6 +61,7 @@ DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
+LS_COLORS='di=1:fi=32:ln=31:pi=5:so=5:bd=5:cd=5:or=31'
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -86,13 +95,10 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   gitfast
-  zsh-autosuggestions
   asdf
-  heroku
-  macos
-  zsh-syntax-highlighting
-  forklift
   history
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 # npm rake yarn npx bundler gatsby
 
@@ -111,6 +117,7 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR=code
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -128,12 +135,12 @@ export LANG=en_US.UTF-8
 
 ###### CUSTOM ########
 
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+if [ -f ~/dotfiles/bash_aliases ]; then
+  . ~/dotfiles/bash_aliases
 fi
 
-if [ -f ~/.pl_aliases ]; then
-  . ~/.pl_aliases
+if [ -f ~/dotfiles/pl_aliases ]; then
+  . ~/dotfiles/pl_aliases
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
