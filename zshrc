@@ -1,3 +1,4 @@
+zshrc
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -193,17 +194,6 @@ export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 export PG_CONFIG="/opt/homebrew/opt/postgresql@16/bin/pg_config"
-
-
-co() {
-  if [ -z "$1" ]; then
-    # If no argument is provided, use fzf to select a branch
-    git co $(git branch | fzf)
-  else
-    # If an argument is provided, use it to checkout the branch
-    git co "$1"
-  fi
-}
 
 m() {
   if [ -z "$1" ]; then
