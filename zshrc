@@ -98,6 +98,7 @@ plugins=(
   gitfast
   asdf
   history
+  rake-fast
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -168,9 +169,12 @@ export PATH="/opt/homebrew/bin/pg_config:$PATH"
 
 ssh-add --apple-load-keychain > /dev/null 2>&1
 
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
+# if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+#   . /opt/homebrew/opt/asdf/libexec/asdf.sh
+#   # export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 export LDFLAGS="-L$(brew --prefix libyaml)/lib"
 export CPPFLAGS="-I$(brew --prefix libyaml)/include"
 export RUBY_YJIT_ENABLE=1
@@ -214,3 +218,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
