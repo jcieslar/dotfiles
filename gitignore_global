@@ -50,3 +50,4 @@ Thumbs.db
 .env
 
 .tool-versions
+.rake_tasks
