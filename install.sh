@@ -25,6 +25,7 @@ brew install fzf ripgrep bat neovim
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install fzf
+brew install eza
 # neovim
 brew install luajit
 brew install ripgrep

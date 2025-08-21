@@ -198,6 +198,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 export PG_CONFIG="/opt/homebrew/opt/postgresql@16/bin/pg_config"
 
+if [ -x "$(command -v eza)" ]; then
+  alias ls="eza"
+  alias la="eza --long --all --group"
+fi
+
 m() {
   if [ -z "$1" ]; then
     git merge $(git branch | fzf)
