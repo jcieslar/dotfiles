@@ -203,14 +203,6 @@ if [ -x "$(command -v eza)" ]; then
   alias la="eza --long --all --group"
 fi
 
-m() {
-  if [ -z "$1" ]; then
-    git merge $(git branch | fzf)
-  else
-    git merge "$1"
-  fi
-}
-
 export RUBY_CONFIGURE_OPTS=--enable-yjit
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
