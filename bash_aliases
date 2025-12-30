@@ -25,7 +25,7 @@ alias merge='git merge --no-edit'
 alias mm='git fetch origin; merge origin/master'
 alias rb='git fetch origin; rebase origin/master'
 alias pr='git pull --rebase origin master'
-alias pm='git pull origin master'
+alias pm='git fetch origin; merge origin/main'
 
 alias grep="grep --color"
 
