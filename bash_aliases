@@ -22,7 +22,7 @@ alias pull='git pull origin'
 alias fetch='git fetch origin'
 alias ph='git push origin HEAD'
 alias merge='git merge --no-edit'
-alias mm='git fetch origin; merge origin/master'
+alias mm='git fetch origin; merge origin/master; merge origin/main'
 alias rb='git fetch origin; rebase origin/master'
 alias pr='git pull --rebase origin master'
 alias pm='git fetch origin; merge origin/main'
@@ -35,10 +35,12 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-alias c='clear'
+alias cc='clear'
 
 # vim
 alias v="nvim"
+
+alias c="cursor -n ."
 
 # bundle
 alias be='bundle exec'

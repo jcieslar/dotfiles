@@ -228,3 +228,5 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/ivmb/.lmstudio/bin"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

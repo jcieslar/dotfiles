@@ -51,3 +51,5 @@ Thumbs.db
 
 .tool-versions
 .rake_tasks
+
+**/.claude/settings.local.json
