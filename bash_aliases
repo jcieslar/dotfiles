@@ -67,6 +67,7 @@ alias a='atom .'
 
 # visual studio code
 alias vc='code .'
+alias ide='cursor -n .'
 
 # youtube-dl
 # https://www.youtube.com/watch\?v\=f_JO_DhEzMk
