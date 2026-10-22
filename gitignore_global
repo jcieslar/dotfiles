@@ -53,3 +53,5 @@ Thumbs.db
 .rake_tasks
 
 **/.claude/settings.local.json
+
+*.gem
