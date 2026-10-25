@@ -223,3 +223,6 @@ export PATH="$PATH:/Users/ivmb/.lmstudio/bin"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 export PATH="$PATH:/Applications/Cursor.app/Contents/Resources/app/bin"
+
+# Added by Antigravity IDE
+export PATH="/Users/ivmb/.antigravity-ide/antigravity-ide/bin:$PATH"
