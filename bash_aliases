@@ -77,3 +77,6 @@ alias ide='cursor -n .'
 alias yt='yt-dlp '
 alias yt2='yt-dlp -f best'
 alias yt-audio='yt-dlp --extract-audio --audio-format mp3'
+
+# claude
+alias ai='claude'

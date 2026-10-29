@@ -166,7 +166,7 @@ export PATH=~/.local/bin:$PATH
 export PATH="/opt/homebrew/bin/pg_config:$PATH"
 # export PATH="/opt/homebrew/opt/postgresql@14/bin/psql:$PATH"
 
-ssh-add --apple-load-keychain > /dev/null 2>&1
+[[ "$(uname)" == "Darwin" ]] && ssh-add --apple-load-keychain > /dev/null 2>&1
 
 # if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
 #   . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -174,8 +174,10 @@ ssh-add --apple-load-keychain > /dev/null 2>&1
 # fi
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-export LDFLAGS="-L$(brew --prefix libyaml)/lib"
-export CPPFLAGS="-I$(brew --prefix libyaml)/include"
+if command -v brew >/dev/null 2>&1; then
+  export LDFLAGS="-L$(brew --prefix libyaml)/lib"
+  export CPPFLAGS="-I$(brew --prefix libyaml)/include"
+fi
 export RUBY_YJIT_ENABLE=1
 export RUBY_CONFIGURE_OPTS=--enable-yjit
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -197,6 +199,17 @@ export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 export PG_CONFIG="/opt/homebrew/opt/postgresql@16/bin/pg_config"
+
+# Aliasy przeniesione z ~/.bashrc (Ubuntu)
+if [[ "$(uname)" == "Linux" ]]; then
+  alias ls='ls --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(fc -ln -1 | sed -e '\''s/^\s*//;s/[;&|]\s*alert$//'\'')"'
+fi
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 if [ -x "$(command -v eza)" ]; then
   alias ls="eza"
@@ -226,3 +239,14 @@ export PATH="$PATH:/Applications/Cursor.app/Contents/Resources/app/bin"
 
 # Added by Antigravity IDE
 export PATH="/Users/ivmb/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# Linux (ubuntu-ai): Ollama runs in Docker (~/ai/docker-compose.yml)
+if [[ "$(uname)" == "Linux" ]] && ! command -v ollama >/dev/null 2>&1; then
+  ollama() {
+    if [ -t 0 ] && [ -t 1 ]; then
+      docker exec -it ollama ollama "$@"
+    else
+      docker exec -i ollama ollama "$@"
+    fi
+  }
+fi
