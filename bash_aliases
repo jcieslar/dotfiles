@@ -80,3 +80,8 @@ alias yt-audio='yt-dlp --extract-audio --audio-format mp3'
 
 # claude
 alias ai='claude'
+
+alias wtc='wt switch --create'
+alias wts='wt switch'
+alias wtb='wt switch --create -b='
+alias wtr='wt remove'
