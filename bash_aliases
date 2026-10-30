@@ -85,3 +85,5 @@ alias wtc='wt switch --create'
 alias wts='wt switch'
 alias wtb='wt switch --create -b='
 alias wtr='wt remove'
+
+alias cl='CLAUDE_CONFIG_DIR=~/.claude-pl claude'
