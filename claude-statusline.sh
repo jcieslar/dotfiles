@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 input=$(cat)
 
-# Orca dostaje dane o limitach przez ten sam statusLine
-orca="$HOME/.orca/agent-hooks/claude-statusline.sh"
-if [ -x "$orca" ]; then
-  printf '%s' "$input" | /bin/sh "$orca" >/dev/null 2>&1 &
-fi
-
-# Zaokrąglanie w jq, bo printf w bashu przy polskim locale nie parsuje "23.5"
+# Round in jq because bash printf cannot parse "23.5" under a Polish locale
 read -r pct5h resets5h pct7d resets7d < <(jq -r '
   def window: [(.used_percentage | if . == null then "-" else round end), .resets_at // "-"];
   .rate_limits | (.five_hour | window) + (.seven_day | window) | @tsv
@@ -15,7 +9,7 @@ read -r pct5h resets5h pct7d resets7d < <(jq -r '
 
 now=$(date +%s)
 
-# Etykieta konta to nazwa aliasu z bash_aliases: cl (~/.claude-pl) albo ai (domyślny config)
+# Account label is the alias name from bash_aliases: cl (~/.claude-pl) or ai (default config)
 case "${CLAUDE_CONFIG_DIR:-}" in
   */.claude-pl | */.claude-pl/) account="cl" ;;
   *) account="ai" ;;
